@@ -1,0 +1,583 @@
+﻿<html>
+	<head>
+<script>
+	function setCookie(e,t,n){var i=new Date;i.setTime(i.getTime()+1e3*n);var o="expires="+i.toUTCString();document.cookie=e+"="+escape(t)+";"+o+";path=/"}function getCookie(e){for(var t=e+"=",n=document.cookie.split(";"),i=0;i<n.length;i++){for(var o=n[i];" "==o.charAt(0);)o=o.substring(1);if(0==o.indexOf(t))return unescape(o.substring(t.length,o.length))}return""}
+	!function(){"use strict";function t(t,i){i?(d[0]=d[16]=d[1]=d[2]=d[3]=d[4]=d[5]=d[6]=d[7]=d[8]=d[9]=d[10]=d[11]=d[12]=d[13]=d[14]=d[15]=0,this.blocks=d):this.blocks=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],t?(this.h0=3238371032,this.h1=914150663,this.h2=812702999,this.h3=4144912697,this.h4=4290775857,this.h5=1750603025,this.h6=1694076839,this.h7=3204075428):(this.h0=1779033703,this.h1=3144134277,this.h2=1013904242,this.h3=2773480762,this.h4=1359893119,this.h5=2600822924,this.h6=528734635,this.h7=1541459225),this.block=this.start=this.bytes=this.hBytes=0,this.finalized=this.hashed=!1,this.first=!0,this.is224=t}function i(i,r,s){var e,n=typeof i;if("string"===n){var o,a=[],u=i.length,c=0;for(e=0;e<u;++e)(o=i.charCodeAt(e))<128?a[c++]=o:o<2048?(a[c++]=192|o>>6,a[c++]=128|63&o):o<55296||o>=57344?(a[c++]=224|o>>12,a[c++]=128|o>>6&63,a[c++]=128|63&o):(o=65536+((1023&o)<<10|1023&i.charCodeAt(++e)),a[c++]=240|o>>18,a[c++]=128|o>>12&63,a[c++]=128|o>>6&63,a[c++]=128|63&o);i=a}else{if("object"!==n)throw new Error(h);if(null===i)throw new Error(h);if(f&&i.constructor===ArrayBuffer)i=new Uint8Array(i);else if(!(Array.isArray(i)||f&&ArrayBuffer.isView(i)))throw new Error(h)}i.length>64&&(i=new t(r,!0).update(i).array());var y=[],p=[];for(e=0;e<64;++e){var l=i[e]||0;y[e]=92^l,p[e]=54^l}t.call(this,r,s),this.update(p),this.oKeyPad=y,this.inner=!0,this.sharedMemory=s}var h="input is invalid type",r="object"==typeof window,s=r?window:{};s.JS_SHA256_NO_WINDOW&&(r=!1);var e=!r&&"object"==typeof self,n=!s.JS_SHA256_NO_NODE_JS&&"object"==typeof process&&process.versions&&process.versions.node;n?s=global:e&&(s=self);var o=!s.JS_SHA256_NO_COMMON_JS&&"object"==typeof module&&module.exports,a="function"==typeof define&&define.amd,f=!s.JS_SHA256_NO_ARRAY_BUFFER&&"undefined"!=typeof ArrayBuffer,u="0123456789abcdef".split(""),c=[-2147483648,8388608,32768,128],y=[24,16,8,0],p=[1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298],l=["hex","array","digest","arrayBuffer"],d=[];!s.JS_SHA256_NO_NODE_JS&&Array.isArray||(Array.isArray=function(t){return"[object Array]"===Object.prototype.toString.call(t)}),!f||!s.JS_SHA256_NO_ARRAY_BUFFER_IS_VIEW&&ArrayBuffer.isView||(ArrayBuffer.isView=function(t){return"object"==typeof t&&t.buffer&&t.buffer.constructor===ArrayBuffer});var A=function(i,h){return function(r){return new t(h,!0).update(r)[i]()}},w=function(i){var h=A("hex",i);n&&(h=b(h,i)),h.create=function(){return new t(i)},h.update=function(t){return h.create().update(t)};for(var r=0;r<l.length;++r){var s=l[r];h[s]=A(s,i)}return h},b=function(t,i){var r=eval("require('crypto')"),s=eval("require('buffer').Buffer"),e=i?"sha224":"sha256",n=function(i){if("string"==typeof i)return r.createHash(e).update(i,"utf8").digest("hex");if(null===i||void 0===i)throw new Error(h);return i.constructor===ArrayBuffer&&(i=new Uint8Array(i)),Array.isArray(i)||ArrayBuffer.isView(i)||i.constructor===s?r.createHash(e).update(new s(i)).digest("hex"):t(i)};return n},v=function(t,h){return function(r,s){return new i(r,h,!0).update(s)[t]()}},_=function(t){var h=v("hex",t);h.create=function(h){return new i(h,t)},h.update=function(t,i){return h.create(t).update(i)};for(var r=0;r<l.length;++r){var s=l[r];h[s]=v(s,t)}return h};t.prototype.update=function(t){if(!this.finalized){var i,r=typeof t;if("string"!==r){if("object"!==r)throw new Error(h);if(null===t)throw new Error(h);if(f&&t.constructor===ArrayBuffer)t=new Uint8Array(t);else if(!(Array.isArray(t)||f&&ArrayBuffer.isView(t)))throw new Error(h);i=!0}for(var s,e,n=0,o=t.length,a=this.blocks;n<o;){if(this.hashed&&(this.hashed=!1,a[0]=this.block,a[16]=a[1]=a[2]=a[3]=a[4]=a[5]=a[6]=a[7]=a[8]=a[9]=a[10]=a[11]=a[12]=a[13]=a[14]=a[15]=0),i)for(e=this.start;n<o&&e<64;++n)a[e>>2]|=t[n]<<y[3&e++];else for(e=this.start;n<o&&e<64;++n)(s=t.charCodeAt(n))<128?a[e>>2]|=s<<y[3&e++]:s<2048?(a[e>>2]|=(192|s>>6)<<y[3&e++],a[e>>2]|=(128|63&s)<<y[3&e++]):s<55296||s>=57344?(a[e>>2]|=(224|s>>12)<<y[3&e++],a[e>>2]|=(128|s>>6&63)<<y[3&e++],a[e>>2]|=(128|63&s)<<y[3&e++]):(s=65536+((1023&s)<<10|1023&t.charCodeAt(++n)),a[e>>2]|=(240|s>>18)<<y[3&e++],a[e>>2]|=(128|s>>12&63)<<y[3&e++],a[e>>2]|=(128|s>>6&63)<<y[3&e++],a[e>>2]|=(128|63&s)<<y[3&e++]);this.lastByteIndex=e,this.bytes+=e-this.start,e>=64?(this.block=a[16],this.start=e-64,this.hash(),this.hashed=!0):this.start=e}return this.bytes>4294967295&&(this.hBytes+=this.bytes/4294967296<<0,this.bytes=this.bytes%4294967296),this}},t.prototype.finalize=function(){if(!this.finalized){this.finalized=!0;var t=this.blocks,i=this.lastByteIndex;t[16]=this.block,t[i>>2]|=c[3&i],this.block=t[16],i>=56&&(this.hashed||this.hash(),t[0]=this.block,t[16]=t[1]=t[2]=t[3]=t[4]=t[5]=t[6]=t[7]=t[8]=t[9]=t[10]=t[11]=t[12]=t[13]=t[14]=t[15]=0),t[14]=this.hBytes<<3|this.bytes>>>29,t[15]=this.bytes<<3,this.hash()}},t.prototype.hash=function(){var t,i,h,r,s,e,n,o,a,f=this.h0,u=this.h1,c=this.h2,y=this.h3,l=this.h4,d=this.h5,A=this.h6,w=this.h7,b=this.blocks;for(t=16;t<64;++t)i=((s=b[t-15])>>>7|s<<25)^(s>>>18|s<<14)^s>>>3,h=((s=b[t-2])>>>17|s<<15)^(s>>>19|s<<13)^s>>>10,b[t]=b[t-16]+i+b[t-7]+h<<0;for(a=u&c,t=0;t<64;t+=4)this.first?(this.is224?(e=300032,w=(s=b[0]-1413257819)-150054599<<0,y=s+24177077<<0):(e=704751109,w=(s=b[0]-210244248)-1521486534<<0,y=s+143694565<<0),this.first=!1):(i=(f>>>2|f<<30)^(f>>>13|f<<19)^(f>>>22|f<<10),r=(e=f&u)^f&c^a,w=y+(s=w+(h=(l>>>6|l<<26)^(l>>>11|l<<21)^(l>>>25|l<<7))+(l&d^~l&A)+p[t]+b[t])<<0,y=s+(i+r)<<0),i=(y>>>2|y<<30)^(y>>>13|y<<19)^(y>>>22|y<<10),r=(n=y&f)^y&u^e,A=c+(s=A+(h=(w>>>6|w<<26)^(w>>>11|w<<21)^(w>>>25|w<<7))+(w&l^~w&d)+p[t+1]+b[t+1])<<0,i=((c=s+(i+r)<<0)>>>2|c<<30)^(c>>>13|c<<19)^(c>>>22|c<<10),r=(o=c&y)^c&f^n,d=u+(s=d+(h=(A>>>6|A<<26)^(A>>>11|A<<21)^(A>>>25|A<<7))+(A&w^~A&l)+p[t+2]+b[t+2])<<0,i=((u=s+(i+r)<<0)>>>2|u<<30)^(u>>>13|u<<19)^(u>>>22|u<<10),r=(a=u&c)^u&y^o,l=f+(s=l+(h=(d>>>6|d<<26)^(d>>>11|d<<21)^(d>>>25|d<<7))+(d&A^~d&w)+p[t+3]+b[t+3])<<0,f=s+(i+r)<<0;this.h0=this.h0+f<<0,this.h1=this.h1+u<<0,this.h2=this.h2+c<<0,this.h3=this.h3+y<<0,this.h4=this.h4+l<<0,this.h5=this.h5+d<<0,this.h6=this.h6+A<<0,this.h7=this.h7+w<<0},t.prototype.hex=function(){this.finalize();var t=this.h0,i=this.h1,h=this.h2,r=this.h3,s=this.h4,e=this.h5,n=this.h6,o=this.h7,a=u[t>>28&15]+u[t>>24&15]+u[t>>20&15]+u[t>>16&15]+u[t>>12&15]+u[t>>8&15]+u[t>>4&15]+u[15&t]+u[i>>28&15]+u[i>>24&15]+u[i>>20&15]+u[i>>16&15]+u[i>>12&15]+u[i>>8&15]+u[i>>4&15]+u[15&i]+u[h>>28&15]+u[h>>24&15]+u[h>>20&15]+u[h>>16&15]+u[h>>12&15]+u[h>>8&15]+u[h>>4&15]+u[15&h]+u[r>>28&15]+u[r>>24&15]+u[r>>20&15]+u[r>>16&15]+u[r>>12&15]+u[r>>8&15]+u[r>>4&15]+u[15&r]+u[s>>28&15]+u[s>>24&15]+u[s>>20&15]+u[s>>16&15]+u[s>>12&15]+u[s>>8&15]+u[s>>4&15]+u[15&s]+u[e>>28&15]+u[e>>24&15]+u[e>>20&15]+u[e>>16&15]+u[e>>12&15]+u[e>>8&15]+u[e>>4&15]+u[15&e]+u[n>>28&15]+u[n>>24&15]+u[n>>20&15]+u[n>>16&15]+u[n>>12&15]+u[n>>8&15]+u[n>>4&15]+u[15&n];return this.is224||(a+=u[o>>28&15]+u[o>>24&15]+u[o>>20&15]+u[o>>16&15]+u[o>>12&15]+u[o>>8&15]+u[o>>4&15]+u[15&o]),a},t.prototype.toString=t.prototype.hex,t.prototype.digest=function(){this.finalize();var t=this.h0,i=this.h1,h=this.h2,r=this.h3,s=this.h4,e=this.h5,n=this.h6,o=this.h7,a=[t>>24&255,t>>16&255,t>>8&255,255&t,i>>24&255,i>>16&255,i>>8&255,255&i,h>>24&255,h>>16&255,h>>8&255,255&h,r>>24&255,r>>16&255,r>>8&255,255&r,s>>24&255,s>>16&255,s>>8&255,255&s,e>>24&255,e>>16&255,e>>8&255,255&e,n>>24&255,n>>16&255,n>>8&255,255&n];return this.is224||a.push(o>>24&255,o>>16&255,o>>8&255,255&o),a},t.prototype.array=t.prototype.digest,t.prototype.arrayBuffer=function(){this.finalize();var t=new ArrayBuffer(this.is224?28:32),i=new DataView(t);return i.setUint32(0,this.h0),i.setUint32(4,this.h1),i.setUint32(8,this.h2),i.setUint32(12,this.h3),i.setUint32(16,this.h4),i.setUint32(20,this.h5),i.setUint32(24,this.h6),this.is224||i.setUint32(28,this.h7),t},i.prototype=new t,i.prototype.finalize=function(){if(t.prototype.finalize.call(this),this.inner){this.inner=!1;var i=this.array();t.call(this,this.is224,this.sharedMemory),this.update(this.oKeyPad),this.update(i),t.prototype.finalize.call(this)}};var B=w();B.sha256=B,B.sha224=w(!0),B.sha256.hmac=_(),B.sha224.hmac=_(!0),o?module.exports=B:(s.sha256=B.sha256,s.sha224=B.sha224,a&&define(function(){return B}))}();
+</script>
+<script>
+	try {
+		function pow () {
+			setCookie('solution', sha256('secret' + getCookie('secret')));
+			try {
+				$(document).ajaxStart(function(event, jqxhr, settings) {
+					setCookie('solution', sha256('secret' + getCookie('secret')));
+				});
+			} catch {}
+		}
+		if(!0) {
+		
+		function docReady(fn) {
+			if (document.readyState === "complete" || document.readyState === "interactive") {
+				setTimeout(fn, 1);
+			} else {
+				document.addEventListener("DOMContentLoaded", fn);
+			}
+		}  
+		docReady(pow);
+		}
+	} catch {}
+
+</script>
+		<title>Anyshop.pw - Пользовательское соглашение</title>
+		
+		<script src="ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script>
+	function response_handler(response, error_popup=true, reload_without_ok_popup=true, reload_after_ok_popup=false, html=false, callback=false) {
+	if (response['status'] == 'ok') {
+		if (reload_without_ok_popup) {
+			window.location.reload();
+		} else {
+			if (!html) {
+				Swal.fire({
+					icon: 'success',
+					title: 'Удачно!',
+					html: response['msg'],
+					footer: '<a href="https://t.me/limitlesser" target="_blank">Администрация</a>'
+				}).then(function(e) {
+					if (callback) {
+						callback()
+					}
+					if (reload_after_ok_popup) {
+						location.reload();
+					}
+				});
+			} else {
+				Swal.fire({
+					icon: 'success',
+					title: 'Удачно!',
+					html: html,
+				}).then(function(e) {
+					if (callback) {
+						callback()
+					}
+					if (reload_after_ok_popup) {
+						location.reload();
+					}
+				});
+			}
+			
+		}
+	} else {
+		if (error_popup) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Ошибочка',
+				html: response['msg'],
+				footer: '<a href="https://t.me/limitlesser" target="_blank">Администрация</a>'
+			}).then(function(e) {
+				if (callback) {
+					callback()
+				}
+			});
+		}
+	}
+}
+</script>
+<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+
+<script src="sweetalert.min.js?id=6"></script>
+<script>
+	function setCookie(cname, cvalue, seconds) {
+		var d = new Date();
+		d.setTime(d.getTime() + seconds * 1000);
+		var expires = "expires="+ d.toUTCString();
+		document.cookie = cname + "=" + escape(cvalue) + ";" + expires + ";path=/";
+	}
+</script>
+		<link rel="stylesheet" href="bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="icon" type="image/jpg" href="images/Favicon.png">
+<link rel="stylesheet" href="css/shops.css">
+<style>
+	body {
+		font-size: 87% !important;
+	}
+	th, td {
+		font-size: 92%;
+	}
+	.btn, .form-control {
+		font-size: 92%;
+	}
+	.sidebar-head, nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom {
+		height: 55px!important;
+	}
+	.navbar-collapse.collapse {
+		margin-top: 7px;
+		/*background-color: white;*/
+		z-index: 10;
+	}
+</style>
+<style>
+body::-webkit-scrollbar {
+	background-color: #fff;
+	width: 10px !important;
+}
+
+body::-webkit-scrollbar-track {
+	background-color: #fff
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: #babac0;
+	border-radius: 10px;
+	border: 2px solid #fff
+}
+
+body::-webkit-scrollbar-button {
+	display: none
+}
+
+@media screen and (max-width: 992px) {
+	body::-webkit-scrollbar {
+		width: 0px;
+		background: transparent;
+		display: none;
+	}
+}
+</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/sidebar.css">
+
+		<script src="ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="sweetalert.min.js?id=6"></script>
+		<script src="v2/gaiau.js?r=4"></script>
+
+	</head>
+	<body>
+	<a hidden="" href="//www.liveinternet.ru/click" target="_blank"><img id="licnt6449" width="31" height="31" style="border:0" title="LiveInternet" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" alt=""></a><script>(function(d,s){d.getElementById("licnt6449").src="//counter.yadro.ru/hit?t45.6;r"+escape(d.referrer)+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script>
+	
+		
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom header2">
+	<a class="navbar-brand" href="index.htm" style="margin-left: 15px;">ANYSHOP</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			
+
+			
+		</ul>
+		<ul class="ml-auto navbar-nav mt-2 mt-lg-0">
+			
+			
+		</ul>
+	</div>
+</nav>
+		<br>
+		<div class="container maxWidth">
+			<div class="row justify-content-center">
+				<div class="col-10">
+					<h3>Соглашение об использовании ресурса anyshop.pw</h3>
+					(далее – "Соглашение" и "AS" соответственно)
+					
+					<br><br>
+					<h4>1. Статус и ответственность сторон соглашения</h4>
+					<ol>
+						<li>
+							Воспользовавшись услугами интернет-ресурса AS вы принимаете на себя все риски, связанные с вашими партнерами, органами власти и третьими лицами.
+						</li>
+						<li>
+							Администрация не несет ответственность за использование сервиса для целей и задач, нарушающих законодательство вашей страны.
+						</li>
+						<li>
+							Мы не несем ответственности за любые противоправные действия наших клиентов в сервисе AS
+						</li>
+						<li>
+							AS является сервисом для предоставления автоматизированного интерфейса для создания собственных торговых интернет-магазинов.
+						</li>
+						<li>
+							Собственники AS имеют право в любое время вносить изменения в настоящее Соглашение. Поправки вступают в силу с момента публикации.
+						</li>
+						<li>
+							Мы оставляем за собой право в отказе предоставления услуг в случае нарушения данного соглашения.
+							<ol>
+								<li>
+									Мы оставялем за собой право в отказе предоставления услуг без объяснения причины.
+								</li>
+							</ol>
+						</li>
+						<li>
+							Если Вы подаете заявку на регистрацию в качестве клиента AS, то тем самым Вы подтверждаете, что имеете законное право осуществлять торговую деятельность.
+							
+						</li>
+						<li>
+							Администрация Сервиса оставляет за собой право в изменении тарифов на предоставление услуг сервиса AS
+						</li>
+					</ol>
+					<h4>2. Гарантии</h4>
+					<ol>
+						<li>
+							Мы не представляем какие-либо гарантии в отношении правомерности деятельности лиц, осуществляющих предпринимательскую деятельность с применением сервиса AS
+						</li>
+						<li>
+							Любые убытки, которые Вы можете понести в случае умышленного или неосторожного использования нашего сервиса, передача ключей WM, пароля доступа и т.д. нами не возмещаются.
+						</li>
+						<li>
+							Мы гарантируем сохранность Вашей конфиденциальной информации.
+						</li>
+						<li>
+							Сервис AS не производит возврат средств за пользование услугами.
+						</li>
+						<li>
+							При выявлении мошенничества со стороны наших клиентов, ему может быть отказано в оказании услуги.
+						</li>
+					</ol>
+					<h4>3. Список товаров запрещенных к продаже:</h4>
+					<ol>
+						<li>
+							Наркотические вещества, психотропные вещества и «закладки».
+						</li>
+						<li>
+							Материалы порнографического характера.
+						</li>
+						<li>
+							Программы, устройства, скрипты для любого вида взлома.
+						</li>
+						<li>
+							Публичные материалы, программное обеспечение, и прочие материалы которые находятся в публичном доступе.
+						</li>
+						<li>
+							Материалы связанные с кардерством, финансовыми махинациями.
+						</li>
+						<li>
+							Взломанные интернет-кошельки и аккаунты к ним.
+						</li>
+						<li>
+							Взломанные сервера.
+						</li>
+						<li>
+							Взломанные RDP-доступы к сервера.
+						</li>
+						<li>
+							SSH-туннели
+						</li>
+						<li>
+							Брут и взломанные аккаунты.
+						</li>
+						<li>
+							Скрипты аренды интернет-магазинов.
+						</li>
+						<li>
+							Способы, услуги добычи, создания чего-либо.
+						</li>
+						<li>
+							Любые пакеты «бизнеса под ключ», складчины.
+						</li>
+						<li>
+							Продажа товара с текстом «писать в icq, skype и прочее»
+						</li>
+						<li>
+							Баги и уязвимости к сайтам.
+						</li>
+						<li>
+							Любые промокоды и купоны, указанные на сайте bonus.mail.ru
+						</li>
+						<li>
+							Аккаунты Citilink.
+						</li>
+						<li>
+							DDOS-услуги.
+						</li>
+						<li>
+							Сканы паспортов, водительских прав, ID и другие подобные документы, удостоверяющие личность.
+						</li>
+						<li>
+							Кошельки любых ЭПС систем и услуги по идентификации
+						</li>
+						<li>
+							Товары, противоречащие законодательствам следующих стран:
+							<ol>
+								<li>
+									Российской Федерации	
+								</li>
+								<li>
+									Украины		
+								</li>
+								<li>
+									Европейского Союза	
+								</li>
+								<li>
+									Соединенных Штатов Америки	
+								</li>
+								<li>
+									Великобритании	
+								</li>
+								<li>
+									Сейшельских островов.			
+								</li>
+							</ol>
+						</li>
+					</ol>
+					<h4>4. Разрешение спорных ситуаций</h4>
+					<ol>
+						<li>При возникновении спорных ситуаций (при жалобе от покупателя о несоответствии товара описанию) администрация имеет право скрыть/заблокировать магазин без права восстановления. У продавца есть сутки после обращения к нему администрации, чтобы вернуть средства пользователю/сделать замену товара или убедить администрицию в том, что ему требуется больше времени. В противном случае магазин скрывается на 2 недели, после блокируется.</li>
+						<li>Администрация имеет право закрыть магазин раньше, чем через сутки после оповещения владельца, если станет очевидно, что владелец магазина мошенник.</li>
+					</ol>
+					<br><br>
+					<b>Обращаем внимание на то что список может расширяться без уведомления, за не выполнение правил будет следовать блокировка магазина!</b>
+					<br><br>
+					<b>Регистрируясь или используя АS в качестве покупателя, ЛЮБОЙ пользователь подтверждает, что прочитал Соглашение и ПОЛНОСТЬЮ согласен со ВСЕМИ пунктами.</b>
+					<br><br>
+					Дата публикации настоящей редакции Соглашения - 8 мая 2020 года
+				</div>
+			</div><br><br>
+			<div class="filler"></div>
+			<!-- Footer -->
+<br><br><br><br><br>
+<!--  -->
+<style>
+	ul {
+		list-style-type: none;
+	}
+	ul .ul-title {
+		font-weight: bold;
+	}
+	.footer-about {
+		font-size: .85em;
+	}
+	.footer-wrapper {
+		padding: 10px 30px 10px 30px;
+	}
+	.footer-wrapper {
+		padding: 30px 0 30px 0;
+
+		border-top: 1px solid rgba(0, 0, 0, .08);
+		background-color: white;
+	}
+	.only-sm {
+		display: none;
+	}
+	.bigger-small {
+		font-size: .9em;
+	}
+	@media screen and (max-width: 992px) {
+		.footer-no-sm {
+			display: none;
+		}
+		.only-sm {
+			display: block;
+		}
+		ul {
+			padding: 0;
+		}
+		ul {
+			font-size: 24px;
+		}
+	}
+</style>
+<div class="container-fluid footer-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<h4 class="brand-link"><a href="index.htm">ANYSHOP</a></h4>
+				<small class="footer-about">Anyshop - сервис для быстрого создания собственных онлайн магазинов. Как создать свой онлайн магазин? Ответ прост: зайдите на anyshop</small>	
+			</div>
+			<!-- <div class="col-lg-1 footer-no-sm"></div> -->
+			<div class="col-lg-2">
+				<br class="only-sm">
+				<ul>
+					<li class="ul-title">Соц. сети:</li>
+					<li><a href="https://vk.com/anyshop_su" target="_blank">Вконтакте</a></li>
+					<li><a href="https://t.me/anyshop_community" target="_blank">Телеграм</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-3">
+				<ul>
+					<li class="ul-title">Связь с администрацией:</li>
+					<li><a href="https://vk.com/anyshop_su" target="_blank">Вконтакте</a></li>
+					<li><a href="https://t.me/limitlesser" target="_blank">Телеграм</a></li>
+					<li><small class="bigger-small">Почта anyshopw@yandex.ru</small></li>
+				</ul>
+			</div>
+			<div class="col-lg-2">
+				<ul>
+					<li class="ul-title">Навигация:</li>
+					<li><a href="index.htm" target="_blank">Главная</a></li>
+					<li><a href="blog/index.htm" target="_blank">Блог</a></li>
+					<li><a href="about.html" target="_blank">О нас</a></li>
+					<li><a href="faq.html" target="_blank">Помощь</a></li>
+					<li><a href="api.html" target="_blank">API</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-2">
+				<ul>
+					<li class="ul-title">Документы:</li>
+					<li><a href="tou.html" target="_blank">Соглашение</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer end -->
+		</div>
+	</body>
+	
+
+	<script>
+		$(document).ready(function(e) {
+			$('.filler').height(window.innerHeight - 85 - $('.maxWidth').height() - $('.page-footer').height());
+			$('.page-footer').width($('.maxWidth').width());
+		});
+	</script>
+	<style>
+		.maxWidth {
+			max-width: 1100px;
+		}
+		.page-footer {
+			margin-left: 50%;
+
+			transform: translate(-50%);
+
+			padding-bottom: 10px;
+		}
+	</style>
+	<script>
+		function setCookie(cname, cvalue, seconds) {
+			var d = new Date();
+			d.setTime(d.getTime() + seconds * 1000);
+			var expires = "expires="+ d.toUTCString();
+			document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+		function getCookie(cname) {
+			var name = cname + "=";
+			var decodedCookie = decodeURIComponent(document.cookie);
+			var ca = decodedCookie.split(';');
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+		function getFormData($form){
+			var unindexed_array = $form.serializeArray();
+			var indexed_array = {};
+
+			$.map(unindexed_array, function(n, i){
+				indexed_array[n['name']] = n['value'];
+			});
+
+			return indexed_array;
+		}
+		function send_mail() {
+			$.ajax({
+				method: 'POST',
+				url: '/chat?a=send',
+				data: {
+					'target' : '',
+					'name' : $('input[name=name]').val(),
+					'callback' : $('input[name=callback]').val(),
+					'body' : $('input[name=body]').val(),
+					'h-captcha-response' : getFormData($('form'))['h-captcha-response']
+				},
+				success: function (response) {
+					response_handler(response, true, false, true);
+				}
+			});
+		}
+	</script>
+
+	<style>
+		textarea {
+			resize: none;
+			height: 8vw !important;
+
+			max-height: 200px;
+			min-height: 100px;
+		}
+		.captcha {
+			transform: translate(0, -20%);
+		}
+		.footer {
+			position: absolute;
+			bottom: 0;
+
+			padding: 20px;
+
+			margin-left: 50%;
+			transform: translate(-50%);
+		}
+		.table-hover tbody th {
+			cursor: pointer;
+		}
+		.h40 {
+			height: 30px;
+		}
+		.h30 {
+			height: 20px;
+		}
+		.h5 {
+			height: 5px;
+		}
+		.col-4, .col-6 {
+			text-align: left;
+		}
+		.centered {
+			text-align: center;
+		}
+		.paymentForm {
+			text-align: left;
+		}
+		.hidden {
+			display: none;
+		}
+	</style>
+</html>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter62772790 = new Ya.Metrika({
+                    id:62772790,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            x = "https://mc.yandex.ru/metrika/watch.js",
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); }
+        for (var i = 0; i < document.scripts.length; i++) {
+            if (document.scripts[i].src === x) { return; }
+        }
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = x;
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="watch/62772790" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- Anycounter -->
+<script>try{$.ajax({method:"POST",url:"https://anyshop.su/api_legacy/anycounter",data:{shop_id:"",shop_name:"/",v2_id:"0",refer:document.referrer,address:document.location.href}});}catch{}</script>
+
+<!-- Liveinternet -->
+<a hidden="" href="//www.liveinternet.ru/click" target="_blank"><img id="licnt6449" width="31" height="31" style="border:0" title="LiveInternet" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" alt=""></a><script>(function(d,s){d.getElementById("licnt6449").src="//counter.yadro.ru/hit?t45.6;r"+escape(d.referrer)+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script>

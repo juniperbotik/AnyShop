@@ -1,0 +1,6 @@
+.swal2-close:focus {
+	outline: none;
+}
+#page-content-wrapper {
+	width: 100%;
+}

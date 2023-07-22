@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Блог anyshop</title>
+	<meta name="description" content="Просматривайте полезные статьи, которые помогут вам при создании своих интернет магазинов. Только самое важное, без воды">
+	<link rel="icon" type="image/png" href="https://anyshop.pw/images/Favicon.png">
+
+	<link rel="stylesheet" href="../bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		@import url('../css2');
+
+
+		body, html {
+			font-family: 'Montserrat', sans-serif;
+
+			margin: 0;
+			padding: 0;
+
+			font-size: 90%;
+
+			overflow-x: hidden;
+		}
+		h1 span {
+			font-family: 'Roboto Condensed', sans-serif;
+			font-weight: bold;
+		}
+		
+		img {
+			max-width: 100%;
+		}
+		h4 a {
+			font-size: .9em;
+		}
+		ul {
+			list-style-type: none;
+		}
+		ul .ul-title {
+			font-weight: bold;
+		}
+
+		.article-wrapper .img-wrapper, .article-wrapper .body-wrapper {
+			vertical-align: top;
+		}
+		.article-wrapper {
+			cursor: pointer;
+		}
+		.article-wrapper .img-wrapper {
+			max-width: 30%;
+
+			height: 100%;
+		}
+		.article-wrapper .body-wrapper {
+			width: 60%;
+
+			height: 200px;
+
+			margin: 5px 0 0 15px;
+		}
+		.go-through-wrapper {
+			width: 100%;
+
+			text-align: right;
+		}
+		.top-inner-wrapper {
+			height: calc(100% - 40px);
+		}
+		.article-wrapper {
+			margin: 50px 0 20px 0;
+
+			height: 200px;
+		}
+
+		.footer-about {
+			font-size: .85em;
+		}
+		.container-fluid {
+			margin: 0;
+			padding: 0;
+		}
+		.tags h3 {
+			font-size: .9em;
+
+			color: gray;
+		} 
+		.article-body-wrapper {
+			max-width: 1000px;
+		}
+		.footer-wrapper {
+			padding: 10px 30px 10px 30px;
+		}
+		.footer-wrapper {
+			padding: 30px 0 30px 0;
+
+			border-top: 1px solid rgba(0, 0, 0, .08);
+			background-color: white;
+		}
+		.inline {
+			display: inline-block;
+		}
+		@media screen and (max-width: 992px) {
+			.block-sm {
+				display: block;
+			}
+			.body-wrapper {
+				height: 50%;
+			}
+			.article-wrapper {
+				height: auto;
+			}
+			.article-wrapper .img-wrapper {
+				height: 250px;
+
+				width: 100%;
+				max-width: unset;
+
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.article-wrapper .img-wrapper img {
+				height: 250px;
+				max-width: unset;
+
+				position: relative;
+
+				margin-left: 50%;
+				transform: translate(-50%, 0);
+			}
+			.article-wrapper .body-wrapper {
+				width: 100%;
+			}
+		}
+	</style>
+
+</head>
+<body>
+
+<div class="container-fluid">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="../index.htm">ANYSHOP</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="index.htm">Блог <span class="sr-only">(current)</span></a>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="../login.html">Личный кабинет</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Articles list -->
+	<div class="container-fluid">
+		<div class="container">
+			<br><br>
+			<div class="row text-center">
+				<div class="col">
+					<h2>Блог</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col article-wrapper" onclick="window.location.href='/blog/css-units'">
+					<div class="img-wrapper inline block-sm">					
+						<img src="../photo-1523437113738-bbd3cc89fb19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80">
+					</div>
+					<div class="inline body-wrapper block-sm">
+						<div class="top-inner-wrapper">
+							<div class="title-wrapper">
+								<h2>Основные меры единиц CSS</h2>						
+							</div>
+							<div class="description-wrapper">
+								<h6>Вы знаете, что кроме процентов (%) и пикселей (px) в CSS присутствуют и другие единицы измерения? Чтобы можно было гибче настроить стили элемента, необходимо использовать и другие меры. Что такое CSS и зачем нужны его единицы измерения? Переходите и читайте статью</h6>				
+							</div>
+						</div>
+						<div class="bottom-inner-wrapper">
+							<div class="go-through-wrapper">
+								<span class="go-through">Читать -></span>						
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<hr>
+
+		</div>
+	</div>
+	
+	<!-- Articles list end -->
+
+	<!-- Footer -->
+<br><br><br><br><br>
+<!--  -->
+<style>
+	ul {
+		list-style-type: none;
+	}
+	ul .ul-title {
+		font-weight: bold;
+	}
+	.footer-about {
+		font-size: .85em;
+	}
+	.footer-wrapper {
+		padding: 10px 30px 10px 30px;
+	}
+	.footer-wrapper {
+		padding: 30px 0 30px 0;
+
+		border-top: 1px solid rgba(0, 0, 0, .08);
+		background-color: white;
+	}
+	.only-sm {
+		display: none;
+	}
+	.bigger-small {
+		font-size: .9em;
+	}
+	@media screen and (max-width: 992px) {
+		.footer-no-sm {
+			display: none;
+		}
+		.only-sm {
+			display: block;
+		}
+		ul {
+			padding: 0;
+		}
+		ul {
+			font-size: 24px;
+		}
+	}
+</style>
+<div class="container-fluid footer-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<h4 class="brand-link"><a href="../index.htm">ANYSHOP</a></h4>
+				<small class="footer-about">Anyshop - сервис для быстрого создания собственных онлайн магазинов. Как создать свой онлайн магазин? Ответ прост: зайдите на anyshop</small>	
+			</div>
+			<!-- <div class="col-lg-1 footer-no-sm"></div> -->
+			<div class="col-lg-2">
+				<br class="only-sm">
+				<ul>
+					<li class="ul-title">Соц. сети:</li>
+					<li><a href="https://vk.com/anyshop_su" target="_blank">Вконтакте</a></li>
+					<li><a href="https://t.me/anyshop_community" target="_blank">Телеграм</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-3">
+				<ul>
+					<li class="ul-title">Связь с администрацией:</li>
+					<li><a href="https://vk.com/anyshop_su" target="_blank">Вконтакте</a></li>
+					<li><a href="https://t.me/limitlesser" target="_blank">Телеграм</a></li>
+					<li><small class="bigger-small">Почта anyshopw@yandex.ru</small></li>
+				</ul>
+			</div>
+			<div class="col-lg-2">
+				<ul>
+					<li class="ul-title">Навигация:</li>
+					<li><a href="../index.htm" target="_blank">Главная</a></li>
+					<li><a href="index.htm" target="_blank">Блог</a></li>
+					<li><a href="../about.html" target="_blank">О нас</a></li>
+					<li><a href="../faq.html" target="_blank">Помощь</a></li>
+					<li><a href="../api.html" target="_blank">API</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-2">
+				<ul>
+					<li class="ul-title">Документы:</li>
+					<li><a href="../tou.html" target="_blank">Соглашение</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer end -->
+</div>
+
+</body>
+</html>

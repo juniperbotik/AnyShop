@@ -1,0 +1,1033 @@
+﻿<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    <head>
+        <script>
+	function setCookie(e,t,n){var i=new Date;i.setTime(i.getTime()+1e3*n);var o="expires="+i.toUTCString();document.cookie=e+"="+escape(t)+";"+o+";path=/"}function getCookie(e){for(var t=e+"=",n=document.cookie.split(";"),i=0;i<n.length;i++){for(var o=n[i];" "==o.charAt(0);)o=o.substring(1);if(0==o.indexOf(t))return unescape(o.substring(t.length,o.length))}return""}
+	!function(){"use strict";function t(t,i){i?(d[0]=d[16]=d[1]=d[2]=d[3]=d[4]=d[5]=d[6]=d[7]=d[8]=d[9]=d[10]=d[11]=d[12]=d[13]=d[14]=d[15]=0,this.blocks=d):this.blocks=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],t?(this.h0=3238371032,this.h1=914150663,this.h2=812702999,this.h3=4144912697,this.h4=4290775857,this.h5=1750603025,this.h6=1694076839,this.h7=3204075428):(this.h0=1779033703,this.h1=3144134277,this.h2=1013904242,this.h3=2773480762,this.h4=1359893119,this.h5=2600822924,this.h6=528734635,this.h7=1541459225),this.block=this.start=this.bytes=this.hBytes=0,this.finalized=this.hashed=!1,this.first=!0,this.is224=t}function i(i,r,s){var e,n=typeof i;if("string"===n){var o,a=[],u=i.length,c=0;for(e=0;e<u;++e)(o=i.charCodeAt(e))<128?a[c++]=o:o<2048?(a[c++]=192|o>>6,a[c++]=128|63&o):o<55296||o>=57344?(a[c++]=224|o>>12,a[c++]=128|o>>6&63,a[c++]=128|63&o):(o=65536+((1023&o)<<10|1023&i.charCodeAt(++e)),a[c++]=240|o>>18,a[c++]=128|o>>12&63,a[c++]=128|o>>6&63,a[c++]=128|63&o);i=a}else{if("object"!==n)throw new Error(h);if(null===i)throw new Error(h);if(f&&i.constructor===ArrayBuffer)i=new Uint8Array(i);else if(!(Array.isArray(i)||f&&ArrayBuffer.isView(i)))throw new Error(h)}i.length>64&&(i=new t(r,!0).update(i).array());var y=[],p=[];for(e=0;e<64;++e){var l=i[e]||0;y[e]=92^l,p[e]=54^l}t.call(this,r,s),this.update(p),this.oKeyPad=y,this.inner=!0,this.sharedMemory=s}var h="input is invalid type",r="object"==typeof window,s=r?window:{};s.JS_SHA256_NO_WINDOW&&(r=!1);var e=!r&&"object"==typeof self,n=!s.JS_SHA256_NO_NODE_JS&&"object"==typeof process&&process.versions&&process.versions.node;n?s=global:e&&(s=self);var o=!s.JS_SHA256_NO_COMMON_JS&&"object"==typeof module&&module.exports,a="function"==typeof define&&define.amd,f=!s.JS_SHA256_NO_ARRAY_BUFFER&&"undefined"!=typeof ArrayBuffer,u="0123456789abcdef".split(""),c=[-2147483648,8388608,32768,128],y=[24,16,8,0],p=[1116352408,1899447441,3049323471,3921009573,961987163,1508970993,2453635748,2870763221,3624381080,310598401,607225278,1426881987,1925078388,2162078206,2614888103,3248222580,3835390401,4022224774,264347078,604807628,770255983,1249150122,1555081692,1996064986,2554220882,2821834349,2952996808,3210313671,3336571891,3584528711,113926993,338241895,666307205,773529912,1294757372,1396182291,1695183700,1986661051,2177026350,2456956037,2730485921,2820302411,3259730800,3345764771,3516065817,3600352804,4094571909,275423344,430227734,506948616,659060556,883997877,958139571,1322822218,1537002063,1747873779,1955562222,2024104815,2227730452,2361852424,2428436474,2756734187,3204031479,3329325298],l=["hex","array","digest","arrayBuffer"],d=[];!s.JS_SHA256_NO_NODE_JS&&Array.isArray||(Array.isArray=function(t){return"[object Array]"===Object.prototype.toString.call(t)}),!f||!s.JS_SHA256_NO_ARRAY_BUFFER_IS_VIEW&&ArrayBuffer.isView||(ArrayBuffer.isView=function(t){return"object"==typeof t&&t.buffer&&t.buffer.constructor===ArrayBuffer});var A=function(i,h){return function(r){return new t(h,!0).update(r)[i]()}},w=function(i){var h=A("hex",i);n&&(h=b(h,i)),h.create=function(){return new t(i)},h.update=function(t){return h.create().update(t)};for(var r=0;r<l.length;++r){var s=l[r];h[s]=A(s,i)}return h},b=function(t,i){var r=eval("require('crypto')"),s=eval("require('buffer').Buffer"),e=i?"sha224":"sha256",n=function(i){if("string"==typeof i)return r.createHash(e).update(i,"utf8").digest("hex");if(null===i||void 0===i)throw new Error(h);return i.constructor===ArrayBuffer&&(i=new Uint8Array(i)),Array.isArray(i)||ArrayBuffer.isView(i)||i.constructor===s?r.createHash(e).update(new s(i)).digest("hex"):t(i)};return n},v=function(t,h){return function(r,s){return new i(r,h,!0).update(s)[t]()}},_=function(t){var h=v("hex",t);h.create=function(h){return new i(h,t)},h.update=function(t,i){return h.create(t).update(i)};for(var r=0;r<l.length;++r){var s=l[r];h[s]=v(s,t)}return h};t.prototype.update=function(t){if(!this.finalized){var i,r=typeof t;if("string"!==r){if("object"!==r)throw new Error(h);if(null===t)throw new Error(h);if(f&&t.constructor===ArrayBuffer)t=new Uint8Array(t);else if(!(Array.isArray(t)||f&&ArrayBuffer.isView(t)))throw new Error(h);i=!0}for(var s,e,n=0,o=t.length,a=this.blocks;n<o;){if(this.hashed&&(this.hashed=!1,a[0]=this.block,a[16]=a[1]=a[2]=a[3]=a[4]=a[5]=a[6]=a[7]=a[8]=a[9]=a[10]=a[11]=a[12]=a[13]=a[14]=a[15]=0),i)for(e=this.start;n<o&&e<64;++n)a[e>>2]|=t[n]<<y[3&e++];else for(e=this.start;n<o&&e<64;++n)(s=t.charCodeAt(n))<128?a[e>>2]|=s<<y[3&e++]:s<2048?(a[e>>2]|=(192|s>>6)<<y[3&e++],a[e>>2]|=(128|63&s)<<y[3&e++]):s<55296||s>=57344?(a[e>>2]|=(224|s>>12)<<y[3&e++],a[e>>2]|=(128|s>>6&63)<<y[3&e++],a[e>>2]|=(128|63&s)<<y[3&e++]):(s=65536+((1023&s)<<10|1023&t.charCodeAt(++n)),a[e>>2]|=(240|s>>18)<<y[3&e++],a[e>>2]|=(128|s>>12&63)<<y[3&e++],a[e>>2]|=(128|s>>6&63)<<y[3&e++],a[e>>2]|=(128|63&s)<<y[3&e++]);this.lastByteIndex=e,this.bytes+=e-this.start,e>=64?(this.block=a[16],this.start=e-64,this.hash(),this.hashed=!0):this.start=e}return this.bytes>4294967295&&(this.hBytes+=this.bytes/4294967296<<0,this.bytes=this.bytes%4294967296),this}},t.prototype.finalize=function(){if(!this.finalized){this.finalized=!0;var t=this.blocks,i=this.lastByteIndex;t[16]=this.block,t[i>>2]|=c[3&i],this.block=t[16],i>=56&&(this.hashed||this.hash(),t[0]=this.block,t[16]=t[1]=t[2]=t[3]=t[4]=t[5]=t[6]=t[7]=t[8]=t[9]=t[10]=t[11]=t[12]=t[13]=t[14]=t[15]=0),t[14]=this.hBytes<<3|this.bytes>>>29,t[15]=this.bytes<<3,this.hash()}},t.prototype.hash=function(){var t,i,h,r,s,e,n,o,a,f=this.h0,u=this.h1,c=this.h2,y=this.h3,l=this.h4,d=this.h5,A=this.h6,w=this.h7,b=this.blocks;for(t=16;t<64;++t)i=((s=b[t-15])>>>7|s<<25)^(s>>>18|s<<14)^s>>>3,h=((s=b[t-2])>>>17|s<<15)^(s>>>19|s<<13)^s>>>10,b[t]=b[t-16]+i+b[t-7]+h<<0;for(a=u&c,t=0;t<64;t+=4)this.first?(this.is224?(e=300032,w=(s=b[0]-1413257819)-150054599<<0,y=s+24177077<<0):(e=704751109,w=(s=b[0]-210244248)-1521486534<<0,y=s+143694565<<0),this.first=!1):(i=(f>>>2|f<<30)^(f>>>13|f<<19)^(f>>>22|f<<10),r=(e=f&u)^f&c^a,w=y+(s=w+(h=(l>>>6|l<<26)^(l>>>11|l<<21)^(l>>>25|l<<7))+(l&d^~l&A)+p[t]+b[t])<<0,y=s+(i+r)<<0),i=(y>>>2|y<<30)^(y>>>13|y<<19)^(y>>>22|y<<10),r=(n=y&f)^y&u^e,A=c+(s=A+(h=(w>>>6|w<<26)^(w>>>11|w<<21)^(w>>>25|w<<7))+(w&l^~w&d)+p[t+1]+b[t+1])<<0,i=((c=s+(i+r)<<0)>>>2|c<<30)^(c>>>13|c<<19)^(c>>>22|c<<10),r=(o=c&y)^c&f^n,d=u+(s=d+(h=(A>>>6|A<<26)^(A>>>11|A<<21)^(A>>>25|A<<7))+(A&w^~A&l)+p[t+2]+b[t+2])<<0,i=((u=s+(i+r)<<0)>>>2|u<<30)^(u>>>13|u<<19)^(u>>>22|u<<10),r=(a=u&c)^u&y^o,l=f+(s=l+(h=(d>>>6|d<<26)^(d>>>11|d<<21)^(d>>>25|d<<7))+(d&A^~d&w)+p[t+3]+b[t+3])<<0,f=s+(i+r)<<0;this.h0=this.h0+f<<0,this.h1=this.h1+u<<0,this.h2=this.h2+c<<0,this.h3=this.h3+y<<0,this.h4=this.h4+l<<0,this.h5=this.h5+d<<0,this.h6=this.h6+A<<0,this.h7=this.h7+w<<0},t.prototype.hex=function(){this.finalize();var t=this.h0,i=this.h1,h=this.h2,r=this.h3,s=this.h4,e=this.h5,n=this.h6,o=this.h7,a=u[t>>28&15]+u[t>>24&15]+u[t>>20&15]+u[t>>16&15]+u[t>>12&15]+u[t>>8&15]+u[t>>4&15]+u[15&t]+u[i>>28&15]+u[i>>24&15]+u[i>>20&15]+u[i>>16&15]+u[i>>12&15]+u[i>>8&15]+u[i>>4&15]+u[15&i]+u[h>>28&15]+u[h>>24&15]+u[h>>20&15]+u[h>>16&15]+u[h>>12&15]+u[h>>8&15]+u[h>>4&15]+u[15&h]+u[r>>28&15]+u[r>>24&15]+u[r>>20&15]+u[r>>16&15]+u[r>>12&15]+u[r>>8&15]+u[r>>4&15]+u[15&r]+u[s>>28&15]+u[s>>24&15]+u[s>>20&15]+u[s>>16&15]+u[s>>12&15]+u[s>>8&15]+u[s>>4&15]+u[15&s]+u[e>>28&15]+u[e>>24&15]+u[e>>20&15]+u[e>>16&15]+u[e>>12&15]+u[e>>8&15]+u[e>>4&15]+u[15&e]+u[n>>28&15]+u[n>>24&15]+u[n>>20&15]+u[n>>16&15]+u[n>>12&15]+u[n>>8&15]+u[n>>4&15]+u[15&n];return this.is224||(a+=u[o>>28&15]+u[o>>24&15]+u[o>>20&15]+u[o>>16&15]+u[o>>12&15]+u[o>>8&15]+u[o>>4&15]+u[15&o]),a},t.prototype.toString=t.prototype.hex,t.prototype.digest=function(){this.finalize();var t=this.h0,i=this.h1,h=this.h2,r=this.h3,s=this.h4,e=this.h5,n=this.h6,o=this.h7,a=[t>>24&255,t>>16&255,t>>8&255,255&t,i>>24&255,i>>16&255,i>>8&255,255&i,h>>24&255,h>>16&255,h>>8&255,255&h,r>>24&255,r>>16&255,r>>8&255,255&r,s>>24&255,s>>16&255,s>>8&255,255&s,e>>24&255,e>>16&255,e>>8&255,255&e,n>>24&255,n>>16&255,n>>8&255,255&n];return this.is224||a.push(o>>24&255,o>>16&255,o>>8&255,255&o),a},t.prototype.array=t.prototype.digest,t.prototype.arrayBuffer=function(){this.finalize();var t=new ArrayBuffer(this.is224?28:32),i=new DataView(t);return i.setUint32(0,this.h0),i.setUint32(4,this.h1),i.setUint32(8,this.h2),i.setUint32(12,this.h3),i.setUint32(16,this.h4),i.setUint32(20,this.h5),i.setUint32(24,this.h6),this.is224||i.setUint32(28,this.h7),t},i.prototype=new t,i.prototype.finalize=function(){if(t.prototype.finalize.call(this),this.inner){this.inner=!1;var i=this.array();t.call(this,this.is224,this.sharedMemory),this.update(this.oKeyPad),this.update(i),t.prototype.finalize.call(this)}};var B=w();B.sha256=B,B.sha224=w(!0),B.sha256.hmac=_(),B.sha224.hmac=_(!0),o?module.exports=B:(s.sha256=B.sha256,s.sha224=B.sha224,a&&define(function(){return B}))}();
+</script>
+<script>
+	try {
+		function pow () {
+			setCookie('solution', sha256('secret' + getCookie('secret')));
+			try {
+				$(document).ajaxStart(function(event, jqxhr, settings) {
+					setCookie('solution', sha256('secret' + getCookie('secret')));
+				});
+			} catch {}
+		}
+		if(!0) {
+		
+		function docReady(fn) {
+			if (document.readyState === "complete" || document.readyState === "interactive") {
+				setTimeout(fn, 1);
+			} else {
+				document.addEventListener("DOMContentLoaded", fn);
+			}
+		}  
+		docReady(pow);
+		}
+	} catch {}
+
+</script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>anyshop - Помощь</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="images/Favicon.png">
+        <link href="v2/chartist.min.css" rel="stylesheet">
+        <link href="v2/c3.min.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="bootstrap.css" crossorigin="anonymous">
+<link href="v2/style.min.css?r=17" rel="stylesheet" type="text/css">
+<link href="css/enjoyhint.css" rel="stylesheet" type="text/css">
+<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+
+<style>
+    .hidden {
+        display: none;
+    }
+    ul i {
+        font-size: 13px!important;
+    }
+    ul {
+        font-size: 13px!important;
+    }
+    .inactive {
+        color: gray !important;
+    }
+    .red {
+        color: red!important;
+    }
+    .green {
+        color: green!important;
+    }
+    .ps-container {
+        overflow: scroll!important;
+    }
+    .ps-container::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
+    .ps-container::-webkit-scrollbar-thumb {
+        background: #FF0000;
+    }
+
+</style>
+<style>
+body::-webkit-scrollbar {
+    background-color: #fff;
+    width: 10px !important;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #fff
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 10px;
+    border: 2px solid #fff
+}
+
+body::-webkit-scrollbar-button {
+    display: none
+}
+
+@media screen and (max-width: 992px) {
+    body::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+        display: none;
+    }
+}
+</style>
+        <style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
+        <style>
+            .card {
+                border-radius: 0 !important;
+                border:0!important;
+            }
+            .card:not(:last-child) {
+                border-right: 1px solid rgba(0,0,0,.125) !important;
+            }
+            a {
+                text-decoration: none !important;
+            }
+        </style>
+        <script src="ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+<script src="npm/chartist%400.11.4/dist/chartist.min.js"></script>
+<script src="v2/chartist-plugin-tooltip.min.js"></script>
+<script>
+	function setCookie(cname, cvalue, seconds) {
+		var d = new Date();
+		d.setTime(d.getTime() + seconds * 1000);
+		var expires = "expires="+ d.toUTCString();
+		document.cookie = cname + "=" + escape(cvalue) + ";" + expires + ";path=/";
+	}
+</script>
+
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(62908333, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="watch/62908333" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">  -->
+<script src="ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js" integrity="sha512-PsJ1f4lw0Jrga4wbDOvdWs9DFl88C1vlcH2VQYqgljHBmzmqtGivUkzRHWx2ZxFlnysKUcROqLeuOpYh9q4YNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="js/kinetic-v5.1.0.min.js"></script>
+<script src="js/enjoyhint.js"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter62772790 = new Ya.Metrika({
+                    id:62772790,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true,
+                    trackHash:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            x = "https://mc.yandex.ru/metrika/watch.js",
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); }
+        for (var i = 0; i < document.scripts.length; i++) {
+            if (document.scripts[i].src === x) { return; }
+        }
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = x;
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="watch/62772790" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- Anycounter -->
+<script>try{$.ajax({method:"POST",url:"https://anyshop.su/api_legacy/anycounter",data:{shop_id:"",shop_name:"/",v2_id:"0",refer:document.referrer,address:document.location.href}});}catch{}</script>
+
+<!-- Liveinternet -->
+<a hidden="" href="//www.liveinternet.ru/click" target="_blank"><img id="licnt6449" width="31" height="31" style="border:0" title="LiveInternet" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAEALAAAAAABAAEAAAIBTAA7" alt=""></a><script>(function(d,s){d.getElementById("licnt6449").src="//counter.yadro.ru/hit?t45.6;r"+escape(d.referrer)+((typeof(s)=="undefined")?"":";s"+s.width+"*"+s.height+"*"+(s.colorDepth?s.colorDepth:s.pixelDepth))+";u"+escape(d.URL)+";h"+escape(d.title.substring(0,150))+";"+Math.random()})(document,screen)</script>
+    </head>
+    <body>
+        <div class="preloader" style="display: none;">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
+        <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full" class="">
+            <header class="topbar" data-navbarbg="skin6">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light">
+        <div class="navbar-header" data-logobg="skin5">
+            <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)">
+                <i class="fas fa-bars"></i>
+            </a>
+            <div class="navbar-brand mx-auto">
+                <span class="logo-text mx-auto" style="color: white;">
+                    <a href="index.htm" style="color: white;"><i class="fas fa-store"></i> anyshop</a>
+                </span>
+            </div>
+        </div>
+        
+    </nav>
+</header>
+<aside class="left-sidebar" data-sidebarbg="skin5">
+    <div class="scroll-sidebar ps-container ps-theme-default ps-active-y" data-ps-id="bc6cad29-24f2-5c20-8e11-a07168da1d98">
+        <nav class="sidebar-nav">
+            
+            <ul id="sidebarnav" class="in">
+                <li class="sidebar-item selected">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="faq.html" aria-expanded="false">
+                        <i class="fas fa-question"></i>
+                        <span class="hide-menu">Помощь</span>
+                    </a>
+                </li>
+                <br>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="login.html" aria-expanded="false">
+                        <i class="fas fa-home"></i>
+                        <span class="hide-menu">Главная</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="login.html" aria-expanded="false">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span class="hide-menu">Вход</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="signup.html" aria-expanded="false">
+                        <i class="far fa-registered"></i>
+                        <span class="hide-menu">Регистрация</span>
+                    </a>
+                </li>
+            </ul>
+            
+        </nav>
+        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+            <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+        </div>
+        <div class="ps-scrollbar-y-rail" style="top: 0px; height: 885px; right: 3px;">
+            <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 256px;"></div>
+        </div>
+    </div>
+</aside>
+<script>
+    function dropdown_clicked(e, elem) {
+        $('li.sidebar-item.selected').removeClass('selected');
+        $(elem).addClass('selected');
+
+        if ($(elem).find('ul')[0].classList.contains('in')) {
+            $(elem).find('ul').addClass('show');
+        } else {
+            $(elem).find('ul').removeClass('show');
+            $(elem).removeClass('selected');
+        }
+        elems = $('.collapse.show').not('.in');
+        elems.removeClass('show');
+
+
+    }
+</script>
+            <div class="page-wrapper" style="display: block;">
+                <div class="container-fluid">
+                    <br>
+                    <br>
+                    <br>
+
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col">
+                                <h4>Часто задаваемые вопросы</h4>
+                                <small class="text-secondary">А так же вопросы, которые могут возникнуть у вас</small>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h5>Полная инструкция по созданию первого магазина</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <a href="https://teletype.in/@limitlesser/anyshop-first-shop" target="_blank">https://teletype.in/@limitlesser/anyshop-first-shop</a>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#how-to-create-shop'>1. Как создать магазин?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#how-to-start-shop'>2. Как настроить и запустить магазин?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#shop-ads'>3. Как увеличить продажи магазина?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#enot-connect'>4. Как подключить enot.io?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#new-shop-page'>5. Как создать страницу магазина?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#anypay-how-to'>6. Как подключить anypay.io</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#teleg-bot-how-to'>7. Как подключить бота телеграм?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#yamoney-how-to'>8. Как подключить ЮMoney/Карта?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#webmoney-how-to'>9. Как подключить webmoney?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#payeer-how-to'>10. Как подключить payeer?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#payok-how-to'>11. Как подключить payok?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#freekassa-how-to'>12. Как подключить freekassa?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#lavaru-how-to'>13. Как подключить Lava.ru?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#ssl-how-to'>14. Как подключить SSL (https) для домена?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#domain-how-to'>15. Как подключить свой собственный домен?</span></a><br>
+                                <!-- <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#fowpay-how-to'>16. Как подключить способ оплаты FowPay?</span></a><br> -->
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#crystalpay-how-to'>16. Как подключить способ оплаты @Crystalpay_bot?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#cryptobot-how-to'>17. Как подключить способ оплаты @CryptoBot?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#itpay-how-to'>18. Как подключить способ оплаты itpay.app?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#rootpay-how-to'>19. Как подключить способ оплаты @RootPayRobot?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#manual-how-to'>20. Как настроить ручную проверку оплаты?</span></a><br>
+                                <a href="#" onclick="return false;"><span data-toggle='collapse' data-target='#support'>21. У меня что-то не работает или остались вопросы</span></a><br>
+
+                                <br><br><br>
+                            </div>
+                            <div class="col-lg-8 collapse-group accordion-group">
+                                <!--  -->
+                                <div id="how-to-create-shop" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим на <a href="login.html?action=create" target="_blank">страницу</a></span><br>
+                                                <span>2. В названии магазина можно вписать латинские буквы, цифры и знак '_'. К примеру TestShop</span><br>
+                                                <span><small>Название магазина, в зависимости от выбранного шаблона, отображается в левом верхнем крае страницы. К тому же, ссылка на ваш магазин будет зависить от названия, например: testshop.anyshop.su</small></span><br>
+                                                <span>3. В описании магазина расскажите чем занимается ваш магазин, ваши основные преимущества и контакты.</span><br>
+                                                <span>4. Выберите интересующий вас срок аренды, если не хватает средств, то пополните баланс на <a href="index.htm" target="_blank">странице</a></span><br>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div id="how-to-start-shop" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">Есть два вида настроек: настройки магазина и шаблона. В настройках магазина вы можете изменить его категорию и описание, продлить его или удалить. В настройках шаблона вы можете менять дизайн вашей страницы, добавлять логотипы, картинки для товаров, устанавливать задний фон страницы и прочее.</div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                1. Переходим в список ваших магазинов по <a href="login.html" target="_blank">ссылке</a>
+                                            </span><br>
+                                            <span>
+                                                2. В колонке 'Управление' нажимаем 'Перейти' напротив необходимого магазина
+                                            </span><br>
+                                            <small>Вы только что перешли в панель администратора вашего магазина, здесь находится сводка по продажам, посетителям и настройки магазина</small><br>
+                                            <span>
+                                                3. В 'Настройки магазина', если необходимо, изменяем категорию и описание магазина
+                                            </span><br>
+                                            <span>
+                                                4. В 'Шаблоны' выбираем понравившейся вам шаблон (можете посмотреть пример шаблона, кликнув по ссылке под ним), просто кликаем по картинке
+                                            </span><br>
+                                            <span>
+                                                5. Дальше необхимо добавить товары, но перед этим добавим хотя бы одну категорию в 'Категории'.
+                                            </span><br>
+                                            <span>
+                                                6. Теперь переходим в 'Новый товар' и заполняем все поля (максимальная длина описания 2048 символов, поле может быть меньше, чем ваше описание), выбираем только что созданную категорию (или любую другую, если вы создали несколько).
+                                            </span><br>
+                                            <small>Теперь на странице 'Позиции' вы можете посмотреть список товаров, которые есть в каталоге вашего магазина</small><br>
+                                            <span>
+                                                7. Теперь можно настроить шаблон. Переходим на страницу 'Веб-конструктор' и, в зависимости от выбранного шаблона, заполняем все поля.
+                                            </span><br>
+                                            <small>Теперь нужно загрузить товары, которые получат пользователи после покупки</small><br>
+                                            <span>
+                                                8. Переходим на страницу 'Позиции' и кликаем на число в колонке 'Остаток'
+                                            </span><br>
+                                            <span>
+                                                9. Нажимаем 'Добавить товар', выбираем способ добавление и загружаем товары. При выборе режима 'Несколько товаров' нужно писать 1 товар на одной строчке
+                                            </span><br>
+                                            <span>
+                                                10. На странице 'Позиции' можно сделать позицию видимой, нажав на текст 'Нет' в колонке 'Скрыт'
+                                            </span><br>
+                                            <small>Теперь, чтобы открыть магазин, необходимо добавить хотя бы один способ оплаты</small><br>
+                                            <span>
+                                                11. Переходим на страницу 'Способы оплаты' и под необходимым способом нажимаем на ссылку 'Настройки'. Заполняем поля и нажимаем 'Сохранить'
+                                            </span><br>
+                                            <span>
+                                                12. Переходим к <a href="login.html" target="_blank">списку всех ваших магазинов</a> и нажимаем 'Открыть' в колонке 'Скрыт'.
+                                            </span><br>
+                                            <span>13. Теперь вы можете перейти в ваш магазин, нажав на название магазина в колонке 'Магазин'. (Ссылка на магазин будет доступна в течение 5 минут после его создания)</span>
+                                                
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div id="shop-ads" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span><b>Внимание.</b></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Чтобы увеличить продажи, вам придётся раскручивать свои магазины, используя сторонние методы (форумы, рекламу и прочее). Ниже вы узнаете как максимально эффективно сделать это.</span>
+                                        </div>
+                                    </div>
+                                    <div class="h50"></div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4>Реклама от Google и Yandex</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Благодаря <a href="https://ads.google.com/intl/ru_tm/home/" target="_blank">ads.google</a> и <a href="https://direct.yandex.ru/" target="_blank">direct.yandex</a> вы сможете рекламировать ваши магазины прямо в поисковиках. Этот метод рекламы является чрезвычайно эффективным, т.к вы платите только за переходы на ваш магазин и получаете именно тех пользователей, которые заинтересованы в покупке ваших товаров. <br>Подробнее про настройку яндекс директ и google ads можете почитать, используя информацию из сети.</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="h50"></div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4>Соц. сети</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Соц. сети - крупнейшие источники трафика для множества магазинов. С помощью своей группы вк или аккаунта инстаграм вы сможете получать стабильные продажи. Кроме того, в соц. сетях можно оставлять отзывы, что добавляет доверие к вашему сайту.</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Самые крупные соц.сети:</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="https://vk.com" target="_blank">vk.com</a> - Вконтакте<br>
+                                            <a href="https://instagram.com" target="_blank">instagram.com</a> - Инстаграм<br>
+                                            <a href="https://facebook.com" target="_blank">facebook.com</a> - Фейсбук<br>
+                                        </div>
+                                    </div>
+                                    <div class="h50"></div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h4>Форумы</h4>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Форумы - отличное место, где вы можете показать все достоинства вашего товара. Кроме того, в основном, здесь находится ваша основная целевая аудитория (т.е люди, которые заинтересованы одной темой, к примеру игры).</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col"><span>Прежде всего, вы должны выбрать форум, который больше всего подходит тематике вашего магазина. К примеру, если вы продаёте игровые аккаунты, то стоит попробовать <a href="https://youhack.xyz/" target="_blank">youhack.xyz</a></span></div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Вы можете искать форумы используя Google или Yandex, здесь представим список самых популярных:</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <a href="https://lolz.guru" target="_blank">Lolzteam</a> - подойдёт для большинства тематик магазина<br>
+                                            <a href="https://youhack.xyz/" target="_blank">Youhack</a> - игровые аккаунты <br>
+                                            <a href="https://zismo.biz/" target="_blank">zismo</a> - аккаунты соц. сетей<br>
+                                            <a href="https://yougame.biz/" target="_blank">yougame.biz</a> - игровой форум<br>
+                                            <a href="https://miped.ru/f/" target="_blank">miped.ru</a> - много разделов специально для торговли<br>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            Вот хороший пример темы магазина: <a href="https://lolz.guru/threads/1692955/" target="_blank">ссылка</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div id="enot-connect" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Данная платёжная система позволяет вашим клиентам оплачивать товары разными способами: Qiwi, Yandex.деньги, банковские карты и другие</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Регистрируемся на <a href="https://enot.io/" target="_blank">https://enot.io/</a></span><br>
+                                                <span>2. Переходим на страницу <a href="https://enot.io/cabinet/merchant/action/step-one" target="_blank">Создание кассы</a></span><br>
+                                                <span>3. Указываем протокол https</span><br>
+                                                <span>4. Пишем домен своего магазина (например ashop.anyshop.su)</span><br>
+                                                <span>5. Заполняем описание своего магазина, чем подробнее, тем быстрее пройдёт модерация</span><br>
+                                                <span>6. Нажимаем продолжить</span><br>
+                                                <span>6.2 Выбираем способ подтверждения 'HTML файлом'</span><br>
+                                                <span>7. Чтобы подтвердить владение доменом, переходим в настройки вашего магазина и нажимаем Добавить файл в меню слева</span><br>
+                                                <span>8. Копируем название файла из enot.io и вставляем его в поле "Название"</span><br>
+                                                <span>9. В поле 'Содержимое' вводим содержимое текстового файла, который вам предложил enot.io и нажимаем сохранить</span><br>
+                                                <span>10. Проверяем что файл доступен по нужному адресу и проходим модерацию</span><br>
+                                                <span>11. После модерации переходим на <a href="https://enot.io/en/cabinet/merchant/site/index" target="_blank">главную</a> и жмём "Редактирование" напротив кассы</span><br>
+                                                <span>12. В поле URL Webhook пишем anyshop.su/enot</span><br>
+                                                <span>13. В полях URL успешной оплаты и URL неудачной оплаты пишем субдомен вашего магазина, например ashop.anyshop.su</span><br>
+                                                <span>14. Выбираем кто платит комиссию и сохраняем</span><br>
+                                                <span>15. Далее копируем секретный пароль и доп. ключ и идём в настройки магазина в пункт 'Способы оплаты'</span><br>
+                                                <span>16. Нажимаем 'Настройки' под enot.io и вводим ID вашей кассы (слева в настройках кассы под названием: ID: xxxx), секретный пароль и доп. пароль</span><br>
+                                                <span>17. Сохраняем новый метод оплаты и он сразу будет доступен пользователям!</span>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div id="new-shop-page" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Вы можете добавлять дополнительные страницы к своему магазину, например страницу с правилами.</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим в настройки магазина</span><br>
+                                                <span>2. Переходим в пункт 'Страницы'</span><br>
+                                                <span>3. Нажимаем 'Добавить страницу'</span><br>
+                                                <span>4. Заполняем поля.</span><br>
+                                                <span>Адрес - адрес страницы. Например если ввести rules, то страница будет доступна по адресу testshop.anyshop.su/rules, если магазин называется testshop</span><br>
+                                                <span>Название - текст, который будет отображатся у пользователей в меню сверху</span><br>
+                                                <span>Заголовок - заголовок страницы</span><br>
+                                                <span>Текст - то, что будет отображаться на странице</span><br>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div id="anypay-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Данная платёжная система позволяет вашим клиентам оплачивать товары разными способами: Qiwi, Yandex.деньги, банковские карты и другие</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Регистрируемся на <a href="https://anypay.io/" target="_blank">https://anypay.io/</a></span><br>
+                                                <span>2. Переходим на страницу <a href="https://anypay.io/panel/main" target="_blank">Создание кассы</a> и кликаем 'добавить новый'</span><br>
+                                                <span>3. Указываем протокол https</span><br>
+                                                <span>4. Пишем домен своего магазина (например ashop.anyshop.su)</span><br>
+                                                <span>5. Заполняем описание своего магазина, чем подробнее, тем быстрее пройдёт модерация</span><br>
+                                                <span>6. Нажимаем продолжить</span><br>
+                                                <span>7. Чтобы подтвердить владение доменом, переходим в настройки вашего магазина и нажимаем Добавить файл в меню слева</span><br>
+                                                <span>8. Копируем название файла из anypay.io и вставляем его в поле "Название"</span><br>
+                                                <span>9. Содержимое оставляем пустым</span><br>
+                                                <span>10. Проверяем что файл доступен по нужному адресу и проходим модерацию</span><br>
+                                                <span>11. После модерации переходим на <a href="https://anypay.io/panel/main" target="_blank">страницу</a> и жмём на иконку настроек кассы</span><br>
+                                                <span>12. В поле URL Оповещения пишем https://ashop.anyshop.su/anypay, где ashop - субдомен вашего магазина и выбираем метод POST, вместо GET</span><br>
+                                                <span>13. В полях URL успешной оплаты и URL неудачной оплаты пишем субдомен вашего магазина, например ashop.anyshop.su</span><br>
+                                                <span>14. Нажимаем сгенерировать напротив поля 'Секретный ключ', копируем его и нажимаем 'сохранить'</span><br>
+                                                <span>15. Идём в настройки магазина на anyshop в пункт 'Способы оплаты'</span><br>
+                                                <span>16. Нажимаем 'Настройки' под anypay.io и вводим ID вашей кассы (в настройках кассы ID проекта: xxxx) и секретный ключ</span><br>
+                                                <span>17. Сохраняем новый метод оплаты и он сразу будет доступен пользователям!</span>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div id="teleg-bot-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>С помощью телеграм бота вы можете полностью перенести свой магазин в этот мессенджер.</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Пишем боту в телеграм <a href="https://t.me/BotFather" target="_blank">@BotFather</a> /newbot, далее пишем любое имя бота для удобства, а во второй раз пишем название своего магазин с приставкой _bot (вы можете указать любой логин, который вам нравится)</span><br>
+                                                <span>2. Бот должен уведомить об успешном создании бота, вам нужно скопировать ключ после текста "Use this token to access the HTTP API:", он выглядит примерно так: xxxxxxxxxx:AAG4ha3EsAGHMG9To5yt7VIzrXSiA28LbFc</span><br>
+                                                <span>3. Переходим на страницу 'Телеграм бот' в настройках магазина</span><br>
+                                                <span>4. Вводим в соответствующее поле секретный ключ, полученный ранее, и нажимаем 'Сохранить'</span><br>
+                                                <span>Готово! Теперь попробуйте написать боту, который доступен по логину, указанному вами в шаге 1</span><br>
+                                                <span>Пример оформленного магазина: <a href="https://t.me/BestQiwiStore_bot" target="_blank">BestQiwiStore</a></span><br><br>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div id="yamoney-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Быстрая настройка приёма оплаты через ЮMoney/Карта.</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим на <a href="https://yoomoney.ru/transfer/myservices/http-notification" target="_blank">страницу</a></span><br>
+                                                <span>2. В поле 'адрес для отправки уведомлений' вводим ссылку вида http://субдомен.anyshop.su/yamoney, где субдомен - субдомен вашего магазина (что то же самое, что его название при создании). Обратите внимание на протокол http://</span><br>
+                                                <span>3. Нажимаем 'Показать секрет' и копируем его</span><br>
+                                                <span>4. Кликаем галочку 'Отправлять уведомления', если она не работает и сохраняем настройки</span><br>
+                                                <span>5. В настройках оплаты вашего магазина переходим на страницу настроек ЮMoney/Карта</span><br>
+                                                <span>6. Вводим номер вашего кошелька и секрет, который вы скопировали ранее</span><br><br>
+                                                <span>Ура! Вы подключили ЮMoney/Карта к своему магазину! Учитывайте, что по правилам яндекса минимальная сумма транзакции - 2 рубля, а также они берут комиссию ~3.5% с каждого перевода. Комиссия учитывается нашим сайтом и автоматически включена в цену.</span>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div id="webmoney-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Быстрая настройка приёма оплаты через webmoney</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим на <a href="https://merchant.wmtransfer.com/conf/default.asp" target="_blank">страницу</a></span><br>
+                                                <span>2. Переходим в "настройки" ("settings")</span><br>
+                                                <span>3. Напротив рублёвого кошелька нажимаем "настроить" ("change")</span><br>
+                                                <span>4. На открывшейся странице меняем режим на "рабочий"</span><br>
+                                                <span>5. Выбираем любое торговое имя</span><br>
+                                                <span>6. В поле Secret Key вписывем пароль для уведомлений (сложная строка от 12 до 32 символов)</span><br>
+                                                <span>7. В поле Result URL пишете домен вашего магазина и страницу /webmoney, например https://testshop.anyshop.su/webmoney</span><br>
+                                                <span>8. В success url и fail url вписываете ссылки на страницы, куда попадёт пользователь в случае удачной или неудачной оплаты (можете ввести ссылку на главную страницу)</span><br>
+                                                <span>9. Обязательно ставим в пункте "Метод формирования контрольной подписи" sha256</span><br>
+                                                <span>10. Сохраняем изменения</span><br>
+                                                <span>11. В настройках оплаты на anyshop.su введите секретный ключ из шага 6 и номер вашего рублёвого кошелька (R12345678) и сохраните его</span><br><br>
+                                                <span>Ура! Вы подключили Webmoney к своему магазину!</span>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <div id="payeer-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Быстрая настройка приёма оплаты через payeer</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим на <a href="https://payeer.com/en/account/api/" target="_blank">страницу</a></span><br>
+                                                <span>2. Нажимаем добавить мерчант (add merchant)</span><br>
+                                                <span>3. Вводим название мерчанта и ссылку на ваш магазин (testdomain.com), для этого вам понадобится подключить свой домен, т.к субдомены payeer не принимает, и нажимаем добавить (add merchant). Не забудьте сохранить ключ, который будет во втором поле</span><br>
+                                                <span>4. Для прохождения проверки на владение доменом, скачиваем файл, который показывает payeer, копируем его содержимое. На anyshop заходим в настройки магазина, "Сайт" -> "Добавить файл". Вводим имя файла и содержимое, которое просит payeer. На сайте payeer нажимаем подтвердить домен</span><br>
+                                                <span>5. В настройках мерчанта в поля "Success url" (URL удачной оплаты) и "Fail URL" (неудачная оплата) вводим адрес вашего магазина, а в поле "Status URL" (статус оплаты) вводим ссылку на ваш магазин + "/payeer". Например, "testshop.anyshop.su/payeer"</span><br>
+                                                <span>6. Сохраняем настройки</span><br>
+                                                <span>7. Запоминаем ID в настройках мерчанта</span><br>
+                                                <span>8. На anyshop в способах оплаты, кликаем "настройки" под карточкой "Payeer", вводим ID мерчанта в поле "ID магазина", вставляем секрет из 3 пункта и сохраняем</span><br><br>
+                                                <span>Ура! Вы подключили Payeer к своему магазину!</span>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <div id="payok-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Быстрая настройка приёма оплаты через payok</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим на <a href="https://payok.io?referal=F5A061" target="_blank">payok.io</a>, проходим регистрацию и входим в личный кабинет</span><br>
+                                                <span>2. В меню создаём новый проект, нажав на "Добавить новый проект"</span><br>
+                                                <span>3. Вводим ссылку на ваш магазин (https://название_магазина_на_anyshop.anyshop.su, например https://testshop.anyshop.su) и описание магазина</span><br>
+                                                <span>4. Выбираем метод подтверждения владения доменом "Загрузить файл на сервер", скачиваем файл, копируем его содержимое</span><br>
+                                                <span>5. На anyshop заходим в настройки магазина, "Сайт" -> "Добавить файл". Вводим имя файла и содержимое, которое просит <a href="https://payok.io?referal=F5A061" target="_blank">payok.io</a>. На сайте <a href="https://payok.io?referal=F5A061" target="_blank">payok.io</a> нажимаем подтвердить домен</span><br>
+                                                <span>6. В настройках нового проекта на <a href="https://payok.io?referal=F5A061" target="_blank">payok.io</a> в графе "URL оповещения" вводим ссылку на ваш магазин + /payok, например: https://testshop.anyshop.su/payok</span><br>
+                                                <span>*7. По желанию вводим ссылку на магазин в поля "URL успешной оплаты" и "URL неуспешной оплаты". Как вариант, можно указать ссылку на вашего телеграм бота.</span><br>
+                                                <span>8. На этой же странице настроек включаем уведомления о платежах (уведомления о платеже -> присылать -> сохранить)</span><br>
+                                                <span>9. Копируем секретный ключ с этой страницы и ID проекта.</span><br>
+                                                <span>10. На anyshop в способах оплаты, кликаем "настройки" под карточкой "Payok", вводим ID проекта в поле "ID проекта", вставляем секрет из 9 пункта и сохраняем</span><br>
+                                                <span>11. Осталось дождаться, когда ваш проект пройдёт модерацию на <a href="https://payok.io?referal=F5A061" target="_blank">payok.io</a></span><br><br>
+                                                <span>Ура! Вы подключили Payok к своему магазину!</span>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <div id="freekassa-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Быстрая настройка приёма оплаты через freekassa</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим на <a href="https://freekassa.ru/auth/registration?inv=anyshop&input_type=hidden" target="_blank">freekassa.ru</a>, проходим регистрацию и входим в личный кабинет</span><br>
+                                                <span>2. В меню создаём новую кассу, нажав на "Добавить кассу"</span><br>
+                                                <span>3. Вводим ссылку на ваш магазин или телеграм бота (https://название_магазина_на_anyshop.anyshop.su, например https://testshop.anyshop.su) и название магазина</span><br>
+                                                <span>4. Выбираем метод подтверждения владения доменом "Разместить файл по URL", скачиваем файл, копируем его содержимое и название</span><br>
+                                                <span>5. На anyshop заходим в настройки магазина, "Сайт" -> "Добавить файл". Вводим имя файла и содержимое, которое просит <a href="https://freekassa.ru/auth/registration?inv=anyshop&input_type=hidden" target="_blank">freekassa.ru</a>. На сайте <a href="https://freekassa.ru/auth/registration?inv=anyshop&input_type=hidden" target="_blank">freekassa.ru</a> нажимаем "Проверить". Убедитесь, что по данному адресу доступен файл</span><br>
+                                                <span>6. В настройках новой кассы на <a href="https://freekassa.ru/auth/registration?inv=anyshop&input_type=hidden" target="_blank">freekassa.ru</a> в графе "URL оповещения" вводим ссылку https://anyshop.su/<название вашего="" магазина="">/freekassa, например: https://anyshop.su/<b>testshop</b>/freekassa</название></span>, выбираем метод запроса уведомлений <b>"POST"</b> (вместо GET)<br>
+                                                <span>*7. По желанию вводим ссылку на магазин в поля "URL успешной оплаты" и "URL неуспешной оплаты". Как вариант, можно указать ссылку на вашего телеграм бота.</span><br>
+                                                <span>8. Копируем "секретное слово 1", "секретное слово 2" и "#ID:" (ID - это несколько цифр, находятся в самом верху страницы) с этой страницы.</span><br>
+                                                <span>9. На anyshop в способах оплаты, кликаем "настройки" под карточкой "Freekassa", вводим ID мерчанта в поле "ID кассы", вставляем "секретное ключ 1" и "секретное ключ 2" из 8 пункта и сохраняем</span><br>
+                                                <span>10. Осталось дождаться, когда ваш проект пройдёт модерацию на <a href="https://freekassa.ru/auth/registration?inv=anyshop&input_type=hidden" target="_blank">freekassa.ru</a></span><br><br>
+                                                <span>Ура! Вы подключили FreeKassa к своему магазину!</span>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <div id="lavaru-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Быстрая настройка приёма оплаты через Lava.ru</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим на <a href="https://lava.ru" target="_blank">lava.ru</a>, проходим регистрацию и входим в личный кабинет</span><br>
+                                                <span>2. В личном кабинете сверху страницы переходим из "Кошелька" в "Бизнес-кабинет"</span><br>
+                                                <span>3. В поле с проектами нажимаем "Добавить"</span><br>
+                                                <span>4. В доменное имя вводим адрес вашего магазина (даже если у вас бот, у вас всё равно есть адрес магазина). Адрес магазина можно найти в вашем списке магазинов, либо сформировать вот так: https://<название магазина="">.anyshop.su, например: https://diffshop.anyshop.su</название></span><br>
+                                                <span>5. В поля "Доменное имя", "Имя проекта" и "Описание проекта" вводим ссылку на бота или на веб версию магазина, имя и описание проекта, нажимаем продолжить.</span><br>
+
+                                                <hr>
+                                                <span>6.1 Если вы ввели ссылку на веб версию магазина, то нужно проделать следующие шаги:</span>
+                                                <span>6.1.1. Переходим в настройки только что созданного проекта, в поле "Способы оплаты и комиссия" кликаем на кнопку "Настроить"</span><br>
+                                                <span>6.1.2. На открывшейся странице кликаем на кнопку "Добавить проект к сайту".</span><br>
+                                                <span>6.1.3. Выбираем способ подтверждения "HTML-файл". Копируем название .txt файла и его его содержимое.</span><br>
+                                                <span>6.1.4. На anyshop заходим в настройки магазина, "Сайт" -> "Добавить файл". Вводим имя файла и содержимое, которые скопировали на шаге 6.1.3.<br>
+                                                <span>6.1.5. На сайте lava.ru нажимаем "Продолжить".</span><br>
+                                                <hr>
+
+                                                <span>7. После добавления сайта, вновь переходим в настройки проекта, нажимаем на кнопку "Перевыпустить ключи". Копируем "Секретный ключ"</span><br>
+                                                <span>8. На этой же странице настроек копируем ID проекта (выглядит примерно так: 9b7eda14-f35a-3bbz-n25a-5sc311cd76)</span><br>
+                                                <span>9. Пишем администратору lava.ru в телеграм: <a href="https://t.me/lava_vasilov" target="_blank">@lava_vasilov</a>. В сообщении нужно указать ID вашего проекта и просьбу активировать проект. Это обязательный шаг, чтобы платёжка заработала.</span>
+                                                <span>10. После активации кассы, на anyshop в способах оплаты, кликаем "настройки" под карточкой "Lava.ru", вставляем ID проекта и секретный ключ из шагов 11 и 12<br><br>
+                                                <span>Ура! Вы подключили Lava.ru к своему магазину!</span>
+                                            </span>
+                                        </span></span></div><br>
+                                    </div>
+                                </div>
+                                <div id="ssl-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Как бесплатно подключить SSL (https, защищённое подключение) для своего домена?</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Регистрируемся на <a href="https://cloudflare.com" target="_blank">cloudflare.com</a> (сокращённо <b>cf</b>)</span><br>
+                                                <span>2. На cf нажимаем "add site" (добавить сайт)</span><br>
+                                                <span>3. Вводим свой домен</span><br>
+                                                <span>4. На следующем шаге выбираем бесплатный план (можно выбрать и платный по вашему желанию)</span><br>
+                                                <span>5. На следующем шаге вам предложат сразу настроить DNS записи. DNS записи - это особые правила для домена, они помогают браузерам понимать что нужно открыть, когда человек переходит по домену. Чтобы добавить домен к нашему сайт, желательно удалить все старые DNS записи и добавить только две. Какие именно читайте пункт 15 на этой странице: "Как добавить свой домен"</span><br>
+                                                <span>6. Когда все DNS записи добавлены, переходим на следующий шаг.</span><br>
+                                                <span>7. На следующем шаге cf предложит вам поменять NS сервера вашего домена. Это нужно, чтобы cf в будущем смог выдать вам SSL сертификат для защищённого соединения. <a href="https://google.com/search?q=Как+поменять+ns+сервера+домена" target="_blank">Как изменить NS сервера зависит от того, где вы покупали домен</a></span><br>
+                                                <span>8. Когда вы поменяли NS сервера, в cf нужно перейти в раздел "SSL/TLS" в меню и на открывшейся странице выбрать режим "Flexible"</span><br>
+                                                <span>9. Ура! Вы успешно подключили SSL для своего домена!</span>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <div id="domain-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Домен позволяет подключать некоторые платёжки, плюс пользователям будет удобнее переходить по адресу вашего сайта, а не по нашему субдомену. Как подключить свой домен?</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим на страницу добавления домена в нашем личном кабинете (в настройках магазина пункты меню: "Сайт" -> "Домены"</span><br>
+                                                <span>2. Копируем строку с открывшейся страницы, которая выделена жирным, имеет формат <b>anyshop-verify-...</b></span><br>
+                                                <span>3. Открываем сайт, где вы покупали домен (ваш регистратор, либо <a href="https://cloudflare.com">cloudflare.com</a>, если вы подключаете SSL (https) для домена)</span><br>
+                                                <span>4. В личном кабинете вашего регистратора в настройках домена должна быть возможность изменения DNS записей домена (управление зоной, если регистратор reg.ru). Обратите внимание, что DNS сервера - это не то же самое, что DNS записи. Вам нужны именно DNS записи. <a href="https://google.com/search?q=Как+добавить+DNS+записи+домена">Как добавить DNS записи домена</a></span><br>
+                                                <span>5. Когда вы разобрались, как добавлять DNS записи, переходим к следующему шагу. Вам нужно добавить две DNS записи:</span><br>
+                                                <span>6. Добавляем DNS запись типа <b>A</b>, при добавлении у вас будет два поля: Subdomain и IP Address (названия полей могут отличаться). В первое поле нужно ввести собаку: <b>@</b>, а во второе поле IP адрес нашего сервера для доменов: <b>185.209.30.98</b></span><br>
+                                                <span>7. Добавляем DNS запись типа <b>TXT</b>, при добавлении у вас так же будет два поля: Subdomain и Text (названия полей могут отличаться). В первое поле вводим собаку: <b>@</b>, а во второе поле вводим строку формата <b>anyshop-verify-...</b>, которую вы скопировали на шаге 2</span><br>
+                                                <span>8. Важно! Если у вас есть другие записи типа <b>A</b>, которые не ведут на адрес <b>185.209.30.98</b>, их нужно удалить, иначе ваш домен не будет работать.</span><br>
+                                                <span>9. Когда добавлены обе эти записи и удалены лишние записи <b>A</b>, возвращаемся на страницу добавления домена в нашем личном кабинете, вводим в поле с доменом ваш домен, нажимаем "Проверить". Если всё удачно, то домен успешно добавлен и будет работать в течение суток.</span><br>
+                                                <span>Внимание! Если вы зарегистрировали домен меньше суток назад, то для настройки домена придётся подождать до суток. Это не зависит от нашей платформы</span><br>
+                                                <span>Если вам нужно настроить защищённое подключение (SSL сертификат), смотрите пункт 14 на этой странице: "Как подключить SSL (https) для домена?"</span><br>
+                                                <span><b>Ура! Вы успешно настроили свой собственный домен!</b></span>
+                                            </span>
+                                        </div><br>
+                                    </div>
+                                </div>
+                                <div id="fowpay-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Как подключить способ оплаты <a href="https://fowpay.com?referal=2147" target="_blank">fowpay.com</a>?</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Регистрируемся на сайте платёжки: <a href="https://fowpay.com?referal=2147" target="_blank">fowpay.com</a><br>
+                                                <span>2. Во вкладке "Мои магазины" создаём новый магазин</span><br>
+                                                <span>3. В поле "Ссылка на сайт/бот" указываем адрес вашего магазина, либо ссылку на бота</span><br>
+                                                <br>
+                                                <span>*4.1.0. Если вы указали ссылку на сайт, то выбираем метод подтверждения "Разместить файл по URL"</span><br>
+                                                <span>*4.1.2. Скачиваем и открываем файл, копируем его содержимое</span><br>
+                                                <span>*4.1.3. Чтобы подтвердить владение доменом, переходим в настройки вашего магазина и нажимаем Добавить файл в меню слева</span><br>
+                                                <span>*4.1.4. Указываем имя файла check_fowpay.txt, а содержимое вставляем то, которое скопировали на шаге 4.1.2</span><br>
+                                                <br>
+                                                <span>*4.2.1 Если вы указали ссылку на вашего бота, то просто заполняем поле о магазине и отправляем на модерацию</span><br>
+                                                <br>
+                                                <span>5. После прохождения модерации переходим в "Мои магазины", нажимаем "Управление" напротив вашего магазина</span><br>
+                                                <span>6. На открывшейся странице в URL оповещения вводим следующее: https://anyshop.su/<название вашего="" магазина="">/fowpay</название></span><br>
+                                                <span>7. Напротив URL оповещения выбираем режим "POST" (если стоит "не отправлять")</span><br>
+                                                <span>8. На этой же странице копируем секретное слово и запоминаем ID магазина (ID магазина находится на этой же странице в самом верху в информации о магазине)</span><br>
+                                                <span>9. В личном кабинете anyshop переходим в список платёжек, выбираем настройки fowpay, вводим ID магазина и секретное слово, сохраняем</span><br>
+
+                                                <span><b>Ура! Вы успешно настроили FowPay!</b></span>
+                                            </span>
+                                        </span></div><br>
+                                    </div>
+                                </div>
+                                <div id="crystalpay-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Как подключить способ оплаты <a href="https://t.me/Crystalpay_bot" target="_blank">@Crystalpay_bot</a>?</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим в телеграм бота <a href="https://t.me/Crystalpay_bot" target="_blank">@Crystalpay_bot</a><br>
+                                                <span>2. Создаём кассу (просто выполняем все требования бота)</span><br>
+                                                <span>3. Копируем название вашей кассы (можно посмотреть в пункте "Моя касса") и первый секретный ключ</span><br>
+                                                <span>4. В личном кабинете anyshop переходим в список платёжек, выбираем настройки CrystalPay, вводим название кассы и первый секретный ключ, сохраняем</span><br>
+                                                <span><b>Ура! Вы успешно настроили CrystalPay!</b></span>
+                                            </span>
+                                        </span></div><br>
+                                    </div>
+                                </div>
+                                <div id="cryptobot-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Как подключить способ оплаты <a href="https://t.me/CryptoBot" target="_blank">@CryptoBot</a>?</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим в телеграм бота <a href="https://t.me/CryptoBot" target="_blank">@CryptoBot</a><br>
+                                                <span>2. Нажимаем кнопку "Crypto Pay"</span><br>
+                                                <span>3. Нажимаем кнопку "Create App"</span><br>
+                                                <span>4. Нажимаем кнопку "Api Token"</span><br>
+                                                <span>5. Копируем секретный ключ (токен) из сообщения после создания приложения</span><br>
+                                                <span>6. В личном кабинете anyshop переходим в список платёжек, выбираем настройки CryptoPay, вводим секретный ключ, сохраняем</span><br>
+                                                <span><b>Ура! Вы успешно настроили CryptoPay!</b></span>
+                                            </span>
+                                        </span></div><br>
+                                    </div>
+                                </div>
+                                <div id="itpay-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Как подключить способ оплаты <a href="https://itpay.app" target="_blank">itpay.app</a>?</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим на сайт <a href="https://itpay.app" target="_blank">itpay.app</a><br>
+                                                <span>2. Во вкладке "Магазины" нажимаем "Добавить магазин"</span><br>
+                                                <span>3. Вводим название вашего магазина, вид деятельности, описание, URL. В поле "SUCCESS URL" вводим адрес вашего магазина + приставка /itpay, например, адрес вашего магазина testshop.anyshop.su, тогда ввести в это поле нужно testshop.anyshop.su/itpay. В остальные поля достаточно ввести адрес вашего магазина</span><br>
+                                                <span>4. Нажимаем кнопку "Добавить магазин"</span><br>
+                                                <span>5. Дожидаемся окончания модерации магазина</span><br>
+                                                <span>6. Копируем API ключ из настроек магазина, а так же ID вашего магазина на itpay</span><br>
+                                                <span>6. В личном кабинете anyshop переходим в список платёжек, выбираем настройки ItPay, вводим API ключ и ID магазина, сохраняем</span><br>
+                                                <span><b>Ура! Вы успешно настроили ItPay!</b></span>
+                                            </span>
+                                        </span></div><br>
+                                    </div>
+                                </div>
+                                <div id="rootpay-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Как подключить способ оплаты <a href="https://t.me/RootPayRobot" target="_blank">@RootPayRobot</a>?</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим в бота <a href="https://t.me/RootPayRobot" target="_blank">@RootPayRobot</a><br>
+                                                <span>2. Нажимаем "Мои проекты"</span><br>
+                                                <span>3. Нажимаем "Добавить проект"</span><br>
+                                                <span>4. Нажимаем "Сгенерировать". Бот должен выдать вам API Token (строчка из случайных символов)</span><br>
+                                                <span>5. Переходим на сайт anyshop.su в настройки магазина. В меню переходим в пункт "Способы оплаты"</span><br>
+                                                <span>6. Переходим в настройки RootPay и сохраняем токен, которые получили на шаге 4</span><br>
+                                                <span><b>Ура! Вы успешно настроили RootPay!</b></span>
+                                            </span>
+                                        </span></div><br>
+                                    </div>
+                                </div>
+                                <div id="manual-how-to" class="collapse" data-parent=".collapse-group">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>Как настроить ручную проверку оплаты?</span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col">
+                                            <span>
+                                                <span>1. Переходим в список платёжных систем. В настройках магазина пункт "Способы оплаты"<br>
+                                                <span>2. Нажимаем "Ручная проверка транзакций" в самом низу списка</span><br>
+                                                <span>3. В большое текстовое поле вводим инструкцию для пользователя, чтобы он понимал как именно должен произвести оплату. Например, вы хотите принимать оплаты на свою банковскую карту. В это поле нужно ввести номер вашей карты и дополнительную информацию (например, ваш банк или просьбу оставлять комментарий при переводе денег).</span><br>
+                                                <span>4. Дальше нужно выбрать добавлять кнопку для подтверждения оплаты или нет. Без этой кнопки пользователю понадобится самому писать вам в личные сообщения. Если не добавить эту кнпоку, лучше сразу указать контакт для связи в поле выше. Рекомендуем в любом случае включить эту кнопку.</span><br>
+                                                <span>5. Дальше выбираем нужно ли обязательное подтверждение оплаты. Если его включить, пользователю понадобится прикрепить фотографию, которая подтверждает оплату (чек, скриншот перевода и тп). Так же рекомендуем включить, так вам будет проще проверять оплаты. При включении этой функции, автоматически добавляется кнопка для подтверждения оплаты (кнопка выше)</span><br>
+                                                <span><b>Ура! Вы успешно настроили ручную настройку оплаты! Теперь пользователю при оплате будет выдаваться сообщение, которое вы указали в поле для сообщения, а при подтвердждении оплаты, вам будет приходить уведомление в личные сообщения, либо в канал с оплатами. В канале с оплатами их смогут подтверждать модераторы.</b></span>
+                                            </span>
+                                        </span></div><br>
+                                    </div>
+                                </div>
+                                <div id="support" class="collapse" data-parent=".collapse-group">
+                                    <span>Обратитесь в поддержку нашего сайта. Быстрее всего это можно сделать в телеграм: <a href="https://t.me/limitlesser" target="_blank">@limitlesser</a></span>
+                                </div>
+                            </div>                  
+                        </div>
+                    </div>
+                </div>
+                <footer class="footer text-center">
+                    <a href="index.htm">anyshop.su</a>
+                </footer>
+            </div>
+        </div>
+        <div class="chat-windows hide-chat"></div>
+        <script src="popper.min.js"></script>
+<script src="bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>  
+
+<script src="v2/app.min.js"></script>
+<!-- <script src="/v2/app.init.js"></script> -->
+<script>
+    $(function() {
+        $('#sidebarnav a').on('click', function (e) {
+            
+                if (!$(this).hasClass("active")) {
+                    // hide any open menus and remove all other classes
+                    $("ul", $(this).parents("ul:first")).removeClass("in");
+                    $("a", $(this).parents("ul:first")).removeClass("active");
+                    
+                    // open our new menu and add the open class
+                    $(this).next("ul").addClass("in");
+                    $(this).addClass("active");
+                    
+                }
+                else if ($(this).hasClass("active")) {
+                    $(this).removeClass("active");
+                    $(this).parents("ul:first").removeClass("active");
+                    $(this).next("ul").removeClass("in");
+                }
+        })
+        $('#sidebarnav >li >a.has-arrow').on('click', function (e) {
+            e.preventDefault();
+        });
+        
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        setTimeout(function(){window.dispatchEvent(new Event('resize'))}, 300);
+    });
+</script>
+<script>
+    $('.nav-toggler.waves-effect.waves-light.d-block.d-md-none').on('click', function() {
+        $('.left-sidebar').toggleClass('collapsed');
+    });
+</script>
+
+<script src="sweetalert.min.js?id=6"></script>
+
+<script>
+    function response_handler(response, error_popup=true, reload_without_ok_popup=true, reload_after_ok_popup=false, html=false, callback=false) {
+    if (response['status'] == 'ok') {
+        if (reload_without_ok_popup) {
+            window.location.reload();
+        } else {
+            if (!html) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Удачно!',
+                    html: response['msg'],
+                    footer: '<a href="https://t.me/limitlesser" target="_blank">Администрация</a>'
+                }).then(function(e) {
+                    if (callback) {
+                        callback()
+                    }
+                    if (reload_after_ok_popup) {
+                        location.reload();
+                    }
+                });
+            } else {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Удачно!',
+                    html: html,
+                }).then(function(e) {
+                    if (callback) {
+                        callback()
+                    }
+                    if (reload_after_ok_popup) {
+                        location.reload();
+                    }
+                });
+            }
+            
+        }
+    } else {
+        if (error_popup) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Ошибочка',
+                html: response['msg'],
+                footer: '<a href="https://t.me/limitlesser" target="_blank">Администрация</a>'
+            }).then(function(e) {
+                if (callback) {
+                    callback()
+                }
+            });
+        }
+    }
+}
+
+try {
+    if (!localStorage.getItem('chat_anon')) {
+        localStorage.setItem('chat_anon', '1');
+        Swal.fire({
+            icon: 'success',
+            title: 'Кстати!',
+            html: "У нашей платформы есть канал, где вы можете быстро узнать последние новости проекта, присоединяйтесь, чтобы быть в курсе! <a href='https://t.me/anyshop_community' target='_blank'>https://t.me/anyshop_community</a><br>",
+        })
+    }
+} catch {}
+</script>
+
+<script src="v2/md5.js"></script>
+<canvas id="ct" class="d-none"></canvas>
+
+<script src="v2/gaiau.js?r=4"></script>
+<!-- <script src="//code.jivosite.com/widget/BJNXYGZJr3" async></script> -->
+    </body>
+</html>

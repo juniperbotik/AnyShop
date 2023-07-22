@@ -1,0 +1,1559 @@
+﻿<html>
+	<head>
+		<link rel="icon" type="image/png" href="https://anyshop.pw/images/Favicon.png">
+		<title>Anyshop - Документация по работе с API</title>
+
+		<script src="ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<script src="bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+		<link rel="stylesheet" href="css/sidebar.css">
+
+		<link rel="stylesheet" href="fontawesome/css/all.min.css">
+
+		<style>
+			#show-api-token {
+				cursor: pointer;
+			}
+			.field-description {
+				width: 50%;
+			}
+			.table {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="index.htm">ANYSHOP</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
+	<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse collapsed" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="index.htm">Главная <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="about.html">О нас <span class="sr-only">(current)</span></a>
+			</li>
+		</ul>
+		<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="login.html">Личный кабинет</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+		<div class="container">
+			<br>
+			<div class="row">
+				<div class="col">
+					<h2>Документация по API</h2>
+					<span>API - решение для работы с нашим сайтом при помощи программных средств.<br>Данный раздел в основном предназначен для разработчиков программного обеспечения.</span>
+				</div>
+			</div>
+
+			<br>
+			<div class="row">
+				<div class="col">
+					
+					<span>Ваш токен для авторизации запросов:</span><br>
+					<br>
+					<span type="text" class="form-control collapse d-inline" type="button" id="show-api-token" title="Нажмите, чтобы скопировать" js-token="Войдите в аккаунт, чтобы просматривать и настраивать API ключ">Войдите в аккаунт, чтобы просматривать и настраивать API ключ</span>
+					
+
+					
+				</div>
+			</div>
+
+			<br><br><br>
+			<div class="row">
+				<div class="col">
+					<h4>Механизм работы (важно)</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Все запросы должны посылаться на адрес:</span>
+					<br>
+					<code>https://api.anyshop.su/</code><span class="text-primary">метод</span><code>?</code><span class="text-success">параметр=значение</span>
+					<br><br>
+					<span>Тип запроса может быть любым: <code>GET</code> | <code>POST</code><br>
+					<span>Для доступа к методам API вы обязательно должны передать параметр <code>token</code> в <code>GET</code> или <code>POST</code> параметрах</span><br>
+					<span>Поддерживаются аргументы в формате <code>json</code></span><br><br>
+
+					<span>Для проверки вашего токена вы можете перейти по ссылке (или отправить запрос любого типа) на URL:<br><code>https://api.anyshop.su/test/?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ</code></span>
+
+					<br><br>
+					<span>Для методов, в которых может быть большой ответ (например, список категорий и позиций), максимум выдаётся до 500 элементов. Для таких методов доступен аргумент <code>offset</code> - смещение, начиная с которого будут выдаваться данные.</span>
+				</span></div>
+			</div>
+
+			<br>
+			<br>
+			<br>
+			<h1>Методы</h1>
+			<br>
+
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Получение списка магазинов</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/list/shops</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="99">Параметры не требуются</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Список запрошенных полей.</small>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>id</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина</td>
+							</tr>
+							<tr>
+								<td><code>name</code></td>
+								<td><code>Строка</code></td>
+								<td>Название магазина</td>
+							</tr>
+							<tr>
+								<td><code>paid_before</code></td>
+								<td><code>Число</code></td>
+								<td>Оплачен до (в формате timestamp)</td>
+							</tr>
+							<tr>
+								<td><code>status</code></td>
+								<td><code>Строка</code></td>
+								<td>Статус магазина (<code>Открыт</code> | <code>Скрыт</code>)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/list/shops?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ</code>
+				</div>
+			</div>
+			<!--  -->
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Получение списка категорий</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/list/categories</code></span><br>
+					<span><b>За один запрос можно получить до 500 категорий</b></span>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>offset</code></td>
+								<td><code>Небязательно</code></td>
+								<td><code>Число</code></td>
+								<td>Смещение, начиная с которого выдаются данные.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Список категорий.</small><br>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>id</code></td>
+								<td><code>Число</code></td>
+								<td>ID категории</td>
+							</tr>
+							<tr>
+								<td><code>title</code></td>
+								<td><code>Строка</code></td>
+								<td>Название категории</td>
+							</tr>
+							<tr>
+								<td><code>hidden</code></td>
+								<td><code>Число</code></td>
+								<td>Спрятана ли категория (<code>1</code> - да, иначе нет)</td>
+							</tr>
+							<tr>
+								<td><code>image</code></td>
+								<td><code>Строка</code></td>
+								<td>Ссылка на картинку категории</td>
+							</tr>
+							<tr>
+								<td><code>parent</code></td>
+								<td><code>Число</code></td>
+								<td>ID родительской категории (может быть пустым, если категория не является дочерней)</td>
+							</tr>
+							<tr>
+								<td><code>web_hidden</code></td>
+								<td><code>Число</code></td>
+								<td>Спрятана ли категория на сайте</td>
+							</tr>
+							<tr>
+								<td><code>hide_if_empty</code></td>
+								<td><code>Число</code></td>
+								<td>Прятать ли категорию, если в ней закончились товары (<code>1</code> - да, иначе нет)</td>
+							</tr>
+							<tr>
+								<td><code>count</code></td>
+								<td><code>Число</code></td>
+								<td>Общее кол-во категорий</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/list/categories?shop_id=-1&token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ</code>
+				</div>
+			</div>
+			<!--  -->
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Получение списка позиций каталога</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/list/catalog</code></span><br>
+					<span><b>За один запрос можно получить до 500 позиций</b></span>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>category_id</code></td>
+								<td><code>Необязательно</code></td>
+								<td><code>Число</code></td>
+								<td>ID категории. Можно получить в методе <code>list/categories</code> (метод выше)</td>
+							</tr>
+							<tr>
+								<td><code>offset</code></td>
+								<td><code>Небязательно</code></td>
+								<td><code>Число</code></td>
+								<td>Смещение, начиная с которого выдаются данные.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Список позиций.</small>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>id</code></td>
+								<td><code>Число</code></td>
+								<td>ID позиции</td>
+							</tr>
+							<tr>
+								<td><code>title</code></td>
+								<td><code>Строка</code></td>
+								<td>Название позиции</td>
+							</tr>
+							<tr>
+								<td><code>description</code></td>
+								<td><code>Строка</code></td>
+								<td>Описание позиции</td>
+							</tr>
+							<tr>
+								<td><code>price</code></td>
+								<td><code>Дробное число</code></td>
+								<td>Цена позиции в рублях</td>
+							</tr>
+							<tr>
+								<td><code>old_price</code></td>
+								<td><code>Дробное число</code></td>
+								<td>Старая цена. "Визуальная" скидка для пользователя</td>
+							</tr>
+							<tr>
+								<td><code>left</code></td>
+								<td><code>Число</code></td>
+								<td>Остаток товаров на продаже</td>
+							</tr>
+							<tr>
+								<td><code>cost_price</code></td>
+								<td><code>Дробное число</code></td>
+								<td>Себестоимость товара (для статистики)</td>
+							</tr>
+							<tr>
+								<td><code>hidden</code></td>
+								<td><code>Число</code></td>
+								<td>Спрятана ли позиция (<code>1</code> - да, иначе нет)</td>
+							</tr>
+							<tr>
+								<td><code>cat_id</code></td>
+								<td><code>Число</code></td>
+								<td>ID категории</td>
+							</tr>
+							<tr>
+								<td><code>min_count</code></td>
+								<td><code>Число</code></td>
+								<td>Минимум к покупке</td>
+							</tr>
+							<tr>
+								<td><code>max_count</code></td>
+								<td><code>Число</code></td>
+								<td>Максимальная кол-во товаров к покупке за раз</td>
+							</tr>
+							<tr>
+								<td><code>use_wholesale</code></td>
+								<td><code>Число</code></td>
+								<td>Включены ли оптовые цены (<code>1</code> - да, иначе нет)</td>
+							</tr>
+							<tr>
+								<td><code>wholesale_percent</code></td>
+								<td><code>Число</code></td>
+								<td>Процент оптовой скидки</td>
+							</tr>
+							<tr>
+								<td><code>wholesale_count</code></td>
+								<td><code>Число</code></td>
+								<td>Минимальное кол-во для включения оптовых цен</td>
+							</tr>
+							<tr>
+								<td><code>image</code></td>
+								<td><code>Строка</code></td>
+								<td>Ссылка на картинку позиции</td>
+							</tr>
+							<tr>
+								<td><code>hide_if_empty</code></td>
+								<td><code>Число</code></td>
+								<td>Прятать ли позицию, если закончились товары (<code>1</code> - да, иначе нет)</td>
+							</tr>
+							<tr>
+								<td><code>count</code></td>
+								<td><code>Число</code></td>
+								<td>Общее кол-во позиций (в этой категории или вообще в магазине)</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/list/catalog?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&category_id=1&shop_id=1</code>
+				</div>
+			</div>
+			<!--  -->
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Получение статистики магазина</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/stats</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Статистика магазина и телеграм бота.</small>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>users_count</code></td>
+								<td><code>Число</code></td>
+								<td>Общее кол-во пользователей телеграм бота</td>
+							</tr>
+							<tr>
+								<td><code>active_users</code></td>
+								<td><code>Число</code></td>
+								<td>Кол-во активных пользователей телеграм бота (до которых доходит рассылка)</td>
+							</tr>
+							<tr>
+								<td><code>inactive_count</code></td>
+								<td><code>Число</code></td>
+								<td>Кол-во неактивных пользователей телеграм бота (до которых не доходит рассылка)</td>
+							</tr>
+							<tr>
+								<td><code>profit_total</code></td>
+								<td><code>Число</code></td>
+								<td>Общая чистая прибыль (выручка-себестоимость)</td>
+							</tr>
+							<tr>
+								<td><code>profit_month</code></td>
+								<td><code>Число</code></td>
+								<td>Общая чистая прибыль (выручка-себестоимость) с начала месяца</td>
+							</tr>
+							<tr>
+								<td><code>profit_week</code></td>
+								<td><code>Число</code></td>
+								<td>Общая чистая прибыль (выручка-себестоимость) с начала недели</td>
+							</tr>
+							<tr>
+								<td><code>profit_today</code></td>
+								<td><code>Число</code></td>
+								<td>Общая чистая прибыль (выручка-себестоимость) с начала дня</td>
+							</tr>
+							<tr>
+								<td><code>users_new_month</code></td>
+								<td><code>Число</code></td>
+								<td>Кол-во новых пользователей телеграм бота за месяц</td>
+							</tr>
+							<tr>
+								<td><code>users_new_week</code></td>
+								<td><code>Число</code></td>
+								<td>Кол-во новых пользователей телеграм бота за неделю</td>
+							</tr>
+							<tr>
+								<td><code>users_new_day</code></td>
+								<td><code>Число</code></td>
+								<td>Кол-во новых пользователей телеграм бота за день</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/stats?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Загрузка товаров</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/upload_goods</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>catalog_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID позиции. Можно получить в методе <code>list/catalog</code></td>
+							</tr>
+							<tr>
+								<td><code>mode</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Строка</code></td>
+								<td>Способ загрузки товаров. Переданные данные загрузятся как один товар (<code>single</code>), либо переданные данные разобьются по строкам и загрузятся пачкой (<code>multy</code>)</td>
+							</tr>
+							<tr>
+								<td><code>body</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Строка</code></td>
+								<td>Товары для загрузки. Если режим <code>multy</code> - до 5000 товаров за раз. В режиме <code>single</code> до 4096 символов</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Статистика магазина и телеграм бота.</small>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>count</code></td>
+								<td><code>Число</code></td>
+								<td>Кол-во загруженных товаров</td>
+							</tr>
+							<tr>
+								<td><code>left</code></td>
+								<td><code>Число</code></td>
+								<td>Новый остаток товаров</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/upload_goods?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&catalog_id=1&mode=single&body=Тест</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Выгрузка товаров</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/list/goods</code></span><br>
+					<span><b>За один запрос можно получить до 1000 товаров</b></span>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>catalog_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID позиции. Можно получить в методе <code>list/catalog</code></td>
+							</tr>
+							<tr>
+								<td><code>offset</code></td>
+								<td><code>Небязательно</code></td>
+								<td><code>Число</code></td>
+								<td>Смещение, начиная с которого выдаются данные.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Выгруженные товары.</small><br>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>goods</code></td>
+								<td><code>Массив</code></td>
+								<td>Список товаров позиции</td>
+							</tr>
+							<tr>
+								<td><code>count</code></td>
+								<td><code>Число</code></td>
+								<td>Сколько всего товаров доступно к выгрузке</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/list/goods?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&catalog_id=1</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Скрытие категорий</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/hide/category</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>category_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID категории. Можно получить в методе <code>list/categories</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/hide/category?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&category_id=1</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Скрытие позиций</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/hide/catalog</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>catalog_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID позиции. Можно получить в методе <code>list/catalog</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/hide/catalog?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&catalog_id=1</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Открытие категории</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/show/category</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>category_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID категории. Можно получить в методе <code>list/categories</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/show/category?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&category_id=1</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Открытие позиции</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/show/catalog</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>catalog_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID позиции. Можно получить в методе <code>list/catalog</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/show/catalog?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&catalog_id=1</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Получение курса доллара и списка доступных платёжных систем</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/pay_data</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Курс доллара, установленный в настройках магазина и список доступных платёжных систем (их ID)</small>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>rate</code></td>
+								<td><code>Дробное число</code></td>
+								<td>Курс доллара</td>
+							</tr>
+							<tr>
+								<td><code>payment_systems</code></td>
+								<td><code>Массив</code></td>
+								<td>ID доступных платёжных систем</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/pay_data?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1</code>
+				</div>
+			</div>
+
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Создание оплаты</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/new_order</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>amount</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Дробное число</code></td>
+								<td>Сумма оплаты в рублях</td>
+							</tr>
+							<tr>
+								<td><code>payment_system</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>Метод оплаты, можно получить в методе <code>pay_data</code></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Курс доллара, установленный в настройках магазина и список доступных платёжных систем (их ID)</small>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>buy_id</code></td>
+								<td><code>Число</code></td>
+								<td>Порядковый номер оплаты</td>
+							</tr>
+							<tr>
+								<td><code>comment</code></td>
+								<td><code>Строка</code></td>
+								<td>Уникальный комментарий, можно использовать как идентификатор или временный пароль оплаты</td>
+							</tr>
+							<tr>
+								<td><code>payment_link</code></td>
+								<td><code>Строка</code></td>
+								<td>Ссылка на оплату для пользователя</td>
+							</tr>
+							<tr>
+								<td><code>payment_system</code></td>
+								<td><code>Число</code></td>
+								<td>ID платёжной системы</td>
+							</tr>
+							<tr>
+								<td><code>usd_amount</code></td>
+								<td><code>Дробное число</code></td>
+								<td>Сумма оплаты в долларах по текущему курсу, установленному в настройках магазина</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/new_order?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&payment_system=19&amount=100</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Проверка оплаты</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/check_order</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>comment</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Строка</code></td>
+								<td>Комментарий оплаты (получается в ответе в методе <code>new_order</code>)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Статус оплаты</small>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>state</code></td>
+								<td><code>Строка</code></td>
+								<td>Статус оплаты, возможные варианты: <code>Ожидание</code> | <code>Оплачено</code> | <code>Исполнено</code> | <code>Истёк</code>. Оплаченным счёт считать только если статус стоит <code>Исполнено</code></td>
+							</tr>
+							<tr>
+								<td><code>comment</code></td>
+								<td><code>Строка</code></td>
+								<td>Уникальный комментарий</td>
+							</tr>
+							<tr>
+								<td><code>payment_system</code></td>
+								<td><code>Строка</code></td>
+								<td>ID платёжной системы</td>
+							</tr>
+							<tr>
+								<td><code>amount</code></td>
+								<td><code>Число</code></td>
+								<td>Сумма оплаты в рублях</td>
+							</tr>
+							<tr>
+								<td><code>usd_amount</code></td>
+								<td><code>Дробное число</code></td>
+								<td>Сумма оплаты в долларах по текущему курсу, установленному в настройках магазина</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/check_order?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&comment=ghf2729871</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Информация о пользователе</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/telegram_user</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>tg_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>Телеграм ID пользователя</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Информация о пользователе</small>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>balance</code></td>
+								<td><code>Дробное число</code></td>
+								<td>Текущий баланс пользователя</td>
+							</tr>
+							<tr>
+								<td><code>nickname</code></td>
+								<td><code>Строка</code></td>
+								<td>Логин пользователя</td>
+							</tr>
+							<tr>
+								<td><code>time_joined</code></td>
+								<td><code>Число</code></td>
+								<td>Время, когда пользователь создал диалог с ботом в формате UNIX</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/telegram_user?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&tg_id=1234</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+			<div class="row">
+				<div class="col">
+					<h4>Изменение баланса пользователя</h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<span>Адрес: <code>https://api.anyshop.su/change_balance</code></span><br>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Статус</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>shop_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>ID магазина. Можно получить в методе <code>list/shops</code></td>
+							</tr>
+							<tr>
+								<td><code>tg_id</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Число</code></td>
+								<td>Телеграм ID пользователя</td>
+							</tr>
+							<tr>
+								<td><code>balance</code></td>
+								<td><code>Обязателен</code></td>
+								<td><code>Строка</code></td>
+								<td>На что изменяем баланс, можно отправить в 3 форматах: <code>+число</code> (прибавит к текущему балансу число), <code>-число</code> (вычтет из текущего баланса число), <code>число</code> (установит баланс на это число)</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<h5>Ответ</h5>
+					<small>Новый баланс пользователя</small>
+				</div>
+			</div><br>
+			<div class="row">
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Параметр</th>
+								<th>Тип</th>
+								<th>Описание</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>curr_balance</code></td>
+								<td><code>Дробное число</code></td>
+								<td>Текущий баланс пользователя</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col">
+					<span>Пример использования:</span><br>
+					<code>https://api.anyshop.su/change_balance?token=Войдите в аккаунт, чтобы просматривать и настраивать API ключ&shop_id=1&tg_id=1234&balance=-100</code>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<hr>
+			<!--  -->
+		</div>
+		<!-- Footer -->
+<br><br><br><br><br>
+<!--  -->
+<style>
+	ul {
+		list-style-type: none;
+	}
+	ul .ul-title {
+		font-weight: bold;
+	}
+	.footer-about {
+		font-size: .85em;
+	}
+	.footer-wrapper {
+		padding: 10px 30px 10px 30px;
+	}
+	.footer-wrapper {
+		padding: 30px 0 30px 0;
+
+		border-top: 1px solid rgba(0, 0, 0, .08);
+		background-color: white;
+	}
+	.only-sm {
+		display: none;
+	}
+	.bigger-small {
+		font-size: .9em;
+	}
+	@media screen and (max-width: 992px) {
+		.footer-no-sm {
+			display: none;
+		}
+		.only-sm {
+			display: block;
+		}
+		ul {
+			padding: 0;
+		}
+		ul {
+			font-size: 24px;
+		}
+	}
+</style>
+<div class="container-fluid footer-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<h4 class="brand-link"><a href="index.htm">ANYSHOP</a></h4>
+				<small class="footer-about">Anyshop - сервис для быстрого создания собственных онлайн магазинов. Как создать свой онлайн магазин? Ответ прост: зайдите на anyshop</small>	
+			</div>
+			<!-- <div class="col-lg-1 footer-no-sm"></div> -->
+			<div class="col-lg-2">
+				<br class="only-sm">
+				<ul>
+					<li class="ul-title">Соц. сети:</li>
+					<li><a href="https://vk.com/anyshop_su" target="_blank">Вконтакте</a></li>
+					<li><a href="https://t.me/anyshop_community" target="_blank">Телеграм</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-3">
+				<ul>
+					<li class="ul-title">Связь с администрацией:</li>
+					<li><a href="https://vk.com/anyshop_su" target="_blank">Вконтакте</a></li>
+					<li><a href="https://t.me/limitlesser" target="_blank">Телеграм</a></li>
+					<li><small class="bigger-small">Почта anyshopw@yandex.ru</small></li>
+				</ul>
+			</div>
+			<div class="col-lg-2">
+				<ul>
+					<li class="ul-title">Навигация:</li>
+					<li><a href="index.htm" target="_blank">Главная</a></li>
+					<li><a href="blog/index.htm" target="_blank">Блог</a></li>
+					<li><a href="about.html" target="_blank">О нас</a></li>
+					<li><a href="faq.html" target="_blank">Помощь</a></li>
+					<li><a href="api.html" target="_blank">API</a></li>
+				</ul>
+			</div>
+			<div class="col-lg-2">
+				<ul>
+					<li class="ul-title">Документы:</li>
+					<li><a href="tou.html" target="_blank">Соглашение</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer end -->
+
+	</body>
+
+	<script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/rh.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/cookie.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/sha256.min.js"></script>
+	<script src="sweetalert.min.js?id=6"></script>
+	<script>
+		function upd_token() {
+			if (!confirm("Вы уверены? Токен придётся поменять во всех ваших программах")) {return}
+			$.ajax({
+				url: '/api/re',
+				method: 'POST',
+				success: function(r) {
+					response_handler(r, true, false);
+				}
+			});
+		}
+		function save_permissions() {
+			data = {};
+			data["can_list_shops"] = $('#can_list_shops')[0].checked ? 1 : 0;
+			data["can_list_categories"] = $('#can_list_categories')[0].checked ? 1 : 0;
+			data["can_list_catalog"] = $('#can_list_catalog')[0].checked ? 1 : 0;
+			data["can_upload_goods"] = $('#can_upload_goods')[0].checked ? 1 : 0;
+			data["can_see_stats"] = $('#can_see_stats')[0].checked ? 1 : 0;
+			data["can_get_users"] = $('#can_get_users')[0].checked ? 1 : 0;
+			data["can_export_goods"] = $('#can_export_goods')[0].checked ? 1 : 0;
+			data["can_change_users_balances"] = $('#can_change_users_balances')[0].checked ? 1 : 0;
+			data["can_hide_open_cats_and_catalog"] = $('#can_hide_open_cats_and_catalog')[0].checked ? 1 : 0;
+
+
+			$.ajax({
+				url: '/api/save_permissions',
+				method: 'POST',
+				data: data,
+				success: function(r) {
+					response_handler(r, true, false);
+				}
+			});
+		}
+		const copyToClipboard = str => {
+			const el = document.createElement('textarea');
+			el.value = str;
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			document.body.removeChild(el);
+		};
+	</script>
+</html>
